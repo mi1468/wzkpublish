@@ -2193,7 +2193,7 @@ webpackEmptyAsyncContext.id = 215;
 
 var map = {
 	"../pages/calendar.module/calendar/calendar.module": [
-		664,
+		665,
 		5
 	],
 	"../pages/calendar.module/event-modal/event-modal.module": [
@@ -2201,23 +2201,23 @@ var map = {
 		34
 	],
 	"../pages/checkin-for-doctors/checkin-for-doctors.module": [
-		665,
+		664,
 		33
 	],
 	"../pages/checkin/checkin.module": [
-		666,
+		669,
 		32
 	],
 	"../pages/debugger/debugger.module": [
-		667,
+		666,
 		31
 	],
 	"../pages/document/document.module": [
-		668,
+		667,
 		30
 	],
 	"../pages/draw/draw.module": [
-		669,
+		668,
 		29
 	],
 	"../pages/email-confirmation/email-confirmation.module": [
@@ -2233,7 +2233,7 @@ var map = {
 		26
 	],
 	"../pages/imprint/imprint.module": [
-		675,
+		674,
 		25
 	],
 	"../pages/info-item/info-item.module": [
@@ -2241,7 +2241,7 @@ var map = {
 		24
 	],
 	"../pages/info-list/info-list.module": [
-		674,
+		675,
 		4
 	],
 	"../pages/intro-slider/intro-slider.module": [
@@ -2249,11 +2249,11 @@ var map = {
 		23
 	],
 	"../pages/login/login.module": [
-		678,
+		677,
 		22
 	],
 	"../pages/map/map.module": [
-		677,
+		678,
 		3
 	],
 	"../pages/message-center/message-center.module": [
@@ -2265,15 +2265,15 @@ var map = {
 		21
 	],
 	"../pages/news-list/news-list.module": [
-		682,
+		681,
 		0
 	],
 	"../pages/news/news.module": [
-		681,
+		683,
 		20
 	],
 	"../pages/password-reset/password-reset.module": [
-		683,
+		682,
 		19
 	],
 	"../pages/privacy/privacy.module": [
@@ -2285,15 +2285,15 @@ var map = {
 		17
 	],
 	"../pages/start-text/start-text.module": [
-		686,
+		687,
 		16
 	],
 	"../pages/text/text.module": [
-		687,
+		688,
 		15
 	],
 	"../pages/therapy-entry/therapy-entry.module": [
-		688,
+		686,
 		14
 	],
 	"../pages/tos/tos.module": [
@@ -2309,15 +2309,15 @@ var map = {
 		11
 	],
 	"../pages/user-settings-create-account/user-settings-create-account.module": [
-		692,
+		694,
 		10
 	],
 	"../pages/user-settings-fingerprint-activation/user-settings-fingerprint-activation.module": [
-		693,
+		692,
 		9
 	],
 	"../pages/user-settings-message-center/user-settings-message-center.module": [
-		694,
+		693,
 		8
 	],
 	"../pages/user-settings-push-notification/user-settings-push-notification.module": [
@@ -2325,11 +2325,11 @@ var map = {
 		7
 	],
 	"../pages/user-settings-refill-keys/user-settings-refill-keys.module": [
-		696,
+		697,
 		6
 	],
 	"../pages/user-settings/user-settings.module": [
-		697,
+		696,
 		1
 	]
 };
@@ -5313,40 +5313,40 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/calendar.module/event-modal/event-modal.module#EventModalPageModule', name: 'EventModalPage', segment: 'event-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/calendar.module/calendar/calendar.module#CalendarPageModule', name: 'CalendarPage', segment: 'calendar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/checkin-for-doctors/checkin-for-doctors.module#CheckinForDoctorsPageModule', name: 'CheckinForDoctorsPage', segment: 'checkin-for-doctors', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/checkin/checkin.module#CheckinPageModule', name: 'CheckinPage', segment: 'checkin', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/calendar.module/calendar/calendar.module#CalendarPageModule', name: 'CalendarPage', segment: 'calendar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/debugger/debugger.module#DebuggerPageModule', name: 'DebuggerPage', segment: 'debugger', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/document/document.module#DocumentPageModule', name: 'DocumentPage', segment: 'document', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/draw/draw.module#DrawPageModule', name: 'DrawPage', segment: 'draw', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/checkin/checkin.module#CheckinPageModule', name: 'CheckinPage', segment: 'checkin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/email-confirmation/email-confirmation.module#EmailConfirmationPageModule', name: 'EmailConfirmation', segment: 'email-confirmation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/file-upload/file-upload.module#FileUploadPageModule', name: 'FileUploadPage', segment: 'file-upload', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/food-card/food-card.module#FoodCardPageModule', name: 'FoodCardPage', segment: 'food-card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/info-item/info-item.module#InfoItemPageModule', name: 'InfoItemPage', segment: 'info-item', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/imprint/imprint.module#ImprintPageModule', name: 'ImprintPage', segment: 'imprint', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/intro-slider/intro-slider.module#IntroSliderPageModule', name: 'IntroSliderPage', segment: 'intro-slider', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/message-center/message-center.module#MessageCenterPageModule', name: 'MessageCenterPage', segment: 'message-center', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news-item/news-item.module#NewsItemPageModule', name: 'NewsItemPage', segment: 'news-item', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/news/news.module#NewsPageModule', name: 'NewsPage', segment: 'news', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news-list/news-list.module#NewsListPageModule', name: 'NewsListPage', segment: 'news-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/password-reset/password-reset.module#PasswordResetPageModule', name: 'PasswordResetPage', segment: 'password-reset', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/news/news.module#NewsPageModule', name: 'NewsPage', segment: 'news', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/privacy/privacy.module#PrivacyPageModule', name: 'PrivacyPage', segment: 'privacy', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/start-filter/start-filter.module#StartFilterPageModule', name: 'StartFilterPage', segment: 'start-filter', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/therapy-entry/therapy-entry.module#TherapyEntryPageModule', name: 'TherapyEntryPage', segment: 'therapy-entry', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/start-text/start-text.module#StartTextPageModule', name: 'StartTextPage', segment: 'start-text', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/text/text.module#TextPageModule', name: 'TextPage', segment: 'text', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/therapy-entry/therapy-entry.module#TherapyEntryPageModule', name: 'TherapyEntryPage', segment: 'therapy-entry', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tos/tos.module#TosPageModule', name: 'TosPage', segment: 'tos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-account-information/user-settings-account-information.module#UserSettingsAccountInformationPageModule', name: 'UserSettingsAccountInformationPage', segment: 'user-settings-account-information', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-change-password/user-settings-change-password.module#UserSettingsChangePasswordPageModule', name: 'UserSettingsChangePasswordPage', segment: 'user-settings-change-password', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user-settings-create-account/user-settings-create-account.module#UserSettingsCreateAccountPageModule', name: 'UserSettingsCreateAccountPage', segment: 'user-settings-create-account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-fingerprint-activation/user-settings-fingerprint-activation.module#UserSettingsFingerprintActivationPageModule', name: 'UserSettingsFingerprintActivationPage', segment: 'user-settings-fingerprint-activation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-message-center/user-settings-message-center.module#UserSettingsMessageCenterPageModule', name: 'UserSettingsMessageCenterPage', segment: 'user-settings-message-center', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user-settings-create-account/user-settings-create-account.module#UserSettingsCreateAccountPageModule', name: 'UserSettingsCreateAccountPage', segment: 'user-settings-create-account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-push-notification/user-settings-push-notification.module#UserSettingsPushNotificationPageModule', name: 'UserSettingsPushNotificationPage', segment: 'user-settings-push-notification', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user-settings-refill-keys/user-settings-refill-keys.module#UserSettingsRefillKeysPageModule', name: 'UserSettingsRefillKeysPage', segment: 'user-settings-refill-keys', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user-settings/user-settings.module#UserSettingsPageModule', name: 'UserSettingsPage', segment: 'user-settings', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/user-settings/user-settings.module#UserSettingsPageModule', name: 'UserSettingsPage', segment: 'user-settings', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user-settings-refill-keys/user-settings-refill-keys.module#UserSettingsRefillKeysPageModule', name: 'UserSettingsRefillKeysPage', segment: 'user-settings-refill-keys', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10__ionic_storage__["a" /* IonicStorageModule */].forRoot({ name: '__mydb', driverOrder: ['sqlite', 'websql', 'indexeddb', 'localstorage'] }),
