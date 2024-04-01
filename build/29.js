@@ -1,6 +1,6 @@
 webpackJsonp([29],{
 
-/***/ 668:
+/***/ 669:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DrawPageModule", function() { return DrawPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__draw__ = __webpack_require__(748);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__draw__ = __webpack_require__(749);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var DrawPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 748:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -251,7 +251,7 @@ var DrawPage = /** @class */ (function () {
     ], DrawPage.prototype, "canvasRef", void 0);
     DrawPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-draw',template:/*ion-inline-start:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\draw\draw.html"*/'<!--\n  Generated template for the DrawPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">\n    <ion-title>Malen</ion-title>\n    <ion-buttons end>\n\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content ion-fixed no-bounce text-center style="overflow: none; height: 100%;">\n  <ion-label *ngIf="kind == \'human\'">Markieren Sie die Körperstellen an denen Sie Schmerzen verspüren.</ion-label>\n  <ion-label *ngIf="kind == \'sign\'">Unterschreiben sie im folgenden Feld</ion-label>\n\n  <div *ngIf="kind == \'human\'" class="draw-wrapper" style="width: 150px; height: 400px;">\n    <img src="{{imagePath}}">\n    <canvas #drawCanvas width="150" height="400" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)"\n            (mouseleave)="mouseLeave()" (mouseup)="mouseUp()"\n            style="z-index: 99999; border: 1px solid #efefef; margin: 0 auto; display: block;height:100%; max-height: 100%;width: auto"></canvas>\n  </div>\n  <div *ngIf="kind == \'sign\'" class="draw-wrapper" style="width: 400px; height: 150px;">\n    <img src="{{imagePath}}">\n    <canvas #drawCanvas width="400" height="150" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)"\n            (mouseleave)="mouseLeave()" (mouseup)="mouseUp()"\n            style="z-index: 99999; border: 1px solid #efefef; margin: 0 auto; display: block;height:100%; max-height: 100%;width: auto"></canvas>\n  </div>\n\n  <div text-center style="margin-top:15px;">\n    <button ion-button color="secondary" (click)="restart()">\n      <ion-icon name="refresh"></ion-icon> &nbsp; neu beginnen\n    </button>\n    <button ion-button (click)="dissmiss()">Fertig</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\draw\draw.html"*/,
+            selector: 'page-draw',template:/*ion-inline-start:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\draw\draw.html"*/'<!--\n  Generated template for the DrawPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">\n    <ion-title>Malen</ion-title>\n    <ion-buttons end>\n\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content ion-fixed no-bounce text-center style="overflow: none; height: 100%;">\n  <ion-label *ngIf="kind == \'human\'">Markieren Sie die Körperstellen an denen Sie Schmerzen verspüren.</ion-label>\n  <ion-label *ngIf="kind == \'sign\'">Unterschreiben sie im folgenden Feld</ion-label>\n\n  <div *ngIf="kind == \'human\'" class="draw-wrapper" style="width: 150px; height: 400px;">\n    <img src="{{imagePath}}">\n    <canvas #drawCanvas width="150" height="400" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)"\n            (mouseleave)="mouseLeave()" (mouseup)="mouseUp()"\n            style="z-index: 99999; border: 1px solid #efefef; margin: 0 auto; display: block;height:100%; max-height: 100%;width: auto"></canvas>\n  </div>\n  <div *ngIf="kind == \'sign\'" class="draw-wrapper" style="width: 400px; height: 150px;">\n    <img src="{{imagePath}}">\n    <canvas #drawCanvas width="400" height="150" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)"\n            (mouseleave)="mouseLeave()" (mouseup)="mouseUp()"\n            style="z-index: 99999; border: 1px solid #efefef; margin: 0 auto; display: block;height:100%; max-height: 100%;width: auto"></canvas>\n  </div>\n\n  <div text-center style="margin-top:15px;">\n    <button ion-button color="secondary" (click)="restart()">\n      <ion-icon name="refresh"></ion-icon> &nbsp; neu beginnen\n    </button>\n    <button ion-button (click)="dissmiss()">Fertig</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\draw\draw.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_draw_draw__["a" /* DrawProvider */]])
     ], DrawPage);

@@ -50335,15 +50335,6 @@ page-login .segment-ios .bottomSegment {
   text-transform: lowercase;
 }
 
-.error-message {
-  margin-left: 14px;
-}
-
-.error-message p {
-  font-size: 16px;
-  color: red;
-}
-
 page-map .item-inner {
   padding-right: 0 !important;
 }

@@ -1,5 +1,66 @@
 webpackJsonp([35],{
 
+/***/ 102:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Info; });
+var Info = /** @class */ (function () {
+    function Info() {
+    }
+    /**/
+    /*
+      public static backendUrl = "https://demobackend.clinetplatforms.com/backend";
+      public static apiURL = "https://demo.clinetplatforms.com/api";
+      public static testOtpKeyUrl = "https://demo.clinetplatforms.com/files/template/";
+      /**/
+    /*
+        public static backendUrl = "https://devbackend.clinetplatforms.com/backend";
+        public static apiURL = "https://dev.clinetplatforms.com/api";
+        public static testOtpKeyUrl = "https://demo.clinetplatforms.com/files/template/";
+        /**/
+    /**
+     * Returns the full path for the api or backend service,
+     * combining the main url of each service with the path specified.
+     * @param path The URI path that you want to merge
+     * @param api Set to true if the URI is on the API service, false if the URI is on the backend/drupal service. Default: false
+     */
+    Info.merge = function (path, api) {
+        if (api === void 0) { api = false; }
+        return (api ? this.apiURL : this.backendUrl()) + path;
+    };
+    Info.backendUrl = function () {
+        if (this.debug == true) {
+            return this.backendUrlDev;
+        }
+        else {
+            return this.backendUrlProd;
+        }
+    };
+    Info.debug = !true;
+    /*This is the main repository for the WZK app*/
+    /*
+    public static backendUrl = "http://backend.clinetplatforms.com/backend";
+    public static apiURL = "https://api.clinetplatforms.com:8243";
+    public static testOtpKeyUrl = "https://api.clinetplatforms.com/files/template/";
+    /**/
+    // Internal project ID
+    Info.projectId = "wzk";
+    Info.backendUrlProd = "https://wappbackend.wz-kliniken.de/backend";
+    Info.backendUrlDev = "http://clinet.drupal.local";
+    Info.backendOauthClientId = "6349e81a-5e76-4398-ad31-2c62e76b5834";
+    Info.backendOauthClientPassword = "qqUefZtu2f4GsWwk";
+    Info.backendOauthClientScope = "app";
+    Info.apiURL = "https://wappapi.wz-kliniken.de/api";
+    Info.testOtpKeyUrl = "https://wappapi.wz-kliniken.de/files/template/";
+    Info.showCalendarAfter = new Date('2021-03-01 00:00:01');
+    return Info;
+}());
+
+//# sourceMappingURL=statics.js.map
+
+/***/ }),
+
 /***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -125,7 +186,7 @@ var HomePage = /** @class */ (function () {
     });
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="image-right" text-right style="padding-right: 5px;text-align:right;">\n      <img class=\'title-image\' src=\'assets/home/Logo_Waldburg-Zeil-Kliniken.svg\' />\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div *ngIf="!userStatus" class="home-hello"\n       style="background:url(assets/home/home.jpg);background-size: cover;background-attachment:scroll;background-repeat:no-repeat;">\n    <!-- 		<img src="assets/img/doctor.jpg"/> -->\n    <!-- <spacer class="" style="height:300px;"> </spacer> -->\n    <div class="hello-title " text-wrap>\n      <div class="">\n        <h1>Waldburg-Zeil Kliniken</h1>\n        <h3 color="secondary">Ein Stück Leben.</h3>\n      </div>\n    </div>\n\n  </div>\n  <div class="old-browser-info"><ion-card>\n<ion-card-header><span color="primary">Achtung:</span> Browser wird nicht vollständig unterstützt</ion-card-header>\n<ion-card-content>Ihr Browser "Internet Explorer" ist sehr alt und wird von dieser Anwendung nicht vollständig unterstützt, sie können jedoch einige Basisfunktionen verwenden.\n<br> Für ein besseres Erlebnis nutzen Sie bitte einen modernen Browser wie Google Chrome, Firefox, Edge, Safari oder laden die die Desktop Version dieser Anwendung herunter:<br><a ion-button href="#">weitere Informationen und Download</a></ion-card-content>\n  </ion-card></div>\n  <div *ngIf="userStatus == \'medical\'" class="home-hello"\n       style="background: center top;background-size: cover;background-attachment:scroll;background-repeat:no-repeat;" [style.backgroundImage]="\'url(\' + backgroundLoggedInImage + \')\'">\n    <!-- 		<img src="assets/img/doctor.jpg"/> -->\n    <!-- <spacer class="" style="height:300px;"> </spacer> -->\n    <div class="hello-title " text-wrap>\n      <div class="">\n        <h1>{{textClinicName}}</h1>\n        <h3 color="secondary">{{textClinicSubtitle}}</h3>\n      </div>\n    </div>\n  </div>\n  <div *ngIf="userStatus == \'user\'" class="home-hello"\n       style="background: center top;background-size: cover;background-attachment:scroll;background-repeat:no-repeat;" [style.backgroundImage]="\'url(\' + backgroundLoggedInImage + \')\'">\n    <!-- 		<img src="assets/img/doctor.jpg"/> -->\n    <!-- <spacer class="" style="height:300px;"> </spacer> -->\n    <div class="hello-title " text-wrap>\n      <div class="">\n        <h1>{{textClinicName}}</h1>\n        <h3 color="secondary">{{textClinicSubtitle}}</h3>\n      </div>\n    </div>\n  </div>\n  <p class="text-description" style="padding: 10px 10px 0px 10px;color:#000" *ngIf="userStatus == \'user\'" padding>\n      {{textClinicDescription}}\n  </p>\n  <p class="text-description" style="padding: 10px 10px 0px 10px;color:#000" *ngIf="!userStatus" padding>\n      Hier finden Sie alle Informationen, die Sie für Ihren Aufenthalt benötigen.\n  </p>\n\n  <ion-row  class="grid" style="" *ngFor="let tilePair of tiles">\n    <ion-col *ngFor="let tile of tilePair">\n      <ion-card class="tile" padding (click)="navigateTo(tile)" *ngIf="!checkDisabled(tile)">\n\n        <ion-item text-center>\n\n          <img class="image-icon large" src="{{tile.icon}}">\n          <h2>{{tile.title}}</h2>\n        </ion-item>\n        <!-- </ion-card-content> -->\n      </ion-card>\n      <ion-card class="tile" padding *ngIf="checkDisabled(tile)" disabled>\n        <ion-item text-center>\n\n          <ion-spinner></ion-spinner>\n          <h2>{{tile.title}} - Laden</h2>\n        </ion-item>\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <!--     <ion-list right text-right  >  <ion-note >							<ion-icon name="time"></ion-icon> Zuletzt genutzt      </ion-note></ion-list> -->\n\n  <!-- <ion-row>\n    <ion-card class="quick-action" [navPush]="newsListPage">\n\n      <ion-card-content>\n        <ion-icon  name="add-circle"></ion-icon>\n        <span>News</span>\n      </ion-card-content>\n    </ion-card>\n  </ion-row> -->\n\n  <!-- <ion-row>\n    <ion-card class="quick-action" [navPush]="drupalListPage">\n      <ion-card-content>\n        <ion-icon   name="information-circle"></ion-icon>\n        <span>Allgemeine Informationen</span>\n      </ion-card-content>\n    </ion-card>\n  </ion-row> -->\n\n  <!-- <br/>\n	<ion-card>\n	  <ion-list detail-push no-lines *ngFor="let subLinkPair of subLinks">\n		<button ion-item *ngFor="let subLink of subLinkPair" (click)="navigateTo(subLink)">\n\n		  {{ subLink.title }}\n		</button>\n\n	  </ion-list>\n	</ion-card> -->\n\n  <!--\n      <ion-row>\n          <ion-card class="quick-action" (click)="getDirections()">\n              <ion-card-content>\n                  <ion-icon name="compass"></ion-icon>\n                  <span>Wegeplan</span>\n              </ion-card-content>\n          </ion-card>\n      </ion-row>\n\n      <ion-row>\n          <ion-card class="quick-action" (click)="openFacebookPage()">\n              <ion-card-content>\n                  <ion-icon name="question"></ion-icon>\n                  <span>Häufige Fragen</span>\n              </ion-card-content>\n          </ion-card>\n      </ion-row>\n  -->\n\n</ion-content>\n<ion-footer (click)="goToLoginPage()" *ngIf="footerNeed" style="z-index: 500000; margin-top: 120px" no-border>\n  <ion-toolbar color="primary">\n    <ion-title><span style="color: #5b5b5b">Hier zum Login</span></ion-title>\n    <ion-buttons end>\n      <button style="color: white" ion-button icon-only>\n        <ion-icon name="arrow-forward"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="image-right" text-right style="padding-right: 5px;text-align:right;">\n      <img class=\'title-image\' src=\'assets/home/Logo_Waldburg-Zeil-Kliniken.svg\' />\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div *ngIf="!userStatus" class="home-hello"\n       style="background:url(assets/home/home.jpg);background-size: cover;background-attachment:scroll;background-repeat:no-repeat;">\n    <!-- 		<img src="assets/img/doctor.jpg"/> -->\n    <!-- <spacer class="" style="height:300px;"> </spacer> -->\n    <div class="hello-title " text-wrap>\n      <div class="">\n        <h1>Waldburg-Zeil Kliniken</h1>\n        <h3 color="secondary">Ein Stück Leben.</h3>\n      </div>\n    </div>\n\n  </div>\n  <div class="old-browser-info"><ion-card>\n<ion-card-header><span color="primary">Achtung:</span> Browser wird nicht vollständig unterstützt</ion-card-header>\n<ion-card-content>Ihr Browser "Internet Explorer" ist sehr alt und wird von dieser Anwendung nicht vollständig unterstützt, sie können jedoch einige Basisfunktionen verwenden.\n<br> Für ein besseres Erlebnis nutzen Sie bitte einen modernen Browser wie Google Chrome, Firefox, Edge, Safari oder laden die die Desktop Version dieser Anwendung herunter:<br><a ion-button href="#">weitere Informationen und Download</a></ion-card-content>\n  </ion-card></div>\n  <div *ngIf="userStatus == \'medical\'" class="home-hello"\n       style="background: center top;background-size: cover;background-attachment:scroll;background-repeat:no-repeat;" [style.backgroundImage]="\'url(\' + backgroundLoggedInImage + \')\'">\n    <!-- 		<img src="assets/img/doctor.jpg"/> -->\n    <!-- <spacer class="" style="height:300px;"> </spacer> -->\n    <div class="hello-title " text-wrap>\n      <div class="">\n        <h1>{{textClinicName}}</h1>\n        <h3 color="secondary">{{textClinicSubtitle}}</h3>\n      </div>\n    </div>\n  </div>\n  <div *ngIf="userStatus == \'user\'" class="home-hello"\n       style="background: center top;background-size: cover;background-attachment:scroll;background-repeat:no-repeat;" [style.backgroundImage]="\'url(\' + backgroundLoggedInImage + \')\'">\n    <!-- 		<img src="assets/img/doctor.jpg"/> -->\n    <!-- <spacer class="" style="height:300px;"> </spacer> -->\n    <div class="hello-title " text-wrap>\n      <div class="">\n        <h1>{{textClinicName}}</h1>\n        <h3 color="secondary">{{textClinicSubtitle}}</h3>\n      </div>\n    </div>\n  </div>\n  <p class="text-description" style="padding: 10px 10px 0px 10px;color:#000" *ngIf="userStatus == \'user\'" padding>\n      {{textClinicDescription}}\n  </p>\n  <p class="text-description" style="padding: 10px 10px 0px 10px;color:#000" *ngIf="!userStatus" padding>\n      Hier finden Sie alle Informationen, die Sie für Ihren Aufenthalt benötigen.\n  </p>\n\n  <ion-row  class="grid" style="" *ngFor="let tilePair of tiles">\n    <ion-col *ngFor="let tile of tilePair">\n      <ion-card class="tile" padding (click)="navigateTo(tile)" *ngIf="!checkDisabled(tile)">\n\n        <ion-item text-center>\n\n          <img class="image-icon large" src="{{tile.icon}}">\n          <h2>{{tile.title}}</h2>\n        </ion-item>\n        <!-- </ion-card-content> -->\n      </ion-card>\n      <ion-card class="tile" padding *ngIf="checkDisabled(tile)" disabled>\n        <ion-item text-center>\n\n          <ion-spinner></ion-spinner>\n          <h2>{{tile.title}} - Laden</h2>\n        </ion-item>\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <!--     <ion-list right text-right  >  <ion-note >							<ion-icon name="time"></ion-icon> Zuletzt genutzt      </ion-note></ion-list> -->\n\n  <!-- <ion-row>\n    <ion-card class="quick-action" [navPush]="newsListPage">\n\n      <ion-card-content>\n        <ion-icon  name="add-circle"></ion-icon>\n        <span>News</span>\n      </ion-card-content>\n    </ion-card>\n  </ion-row> -->\n\n  <!-- <ion-row>\n    <ion-card class="quick-action" [navPush]="drupalListPage">\n      <ion-card-content>\n        <ion-icon   name="information-circle"></ion-icon>\n        <span>Allgemeine Informationen</span>\n      </ion-card-content>\n    </ion-card>\n  </ion-row> -->\n\n  <!-- <br/>\n	<ion-card>\n	  <ion-list detail-push no-lines *ngFor="let subLinkPair of subLinks">\n		<button ion-item *ngFor="let subLink of subLinkPair" (click)="navigateTo(subLink)">\n\n		  {{ subLink.title }}\n		</button>\n\n	  </ion-list>\n	</ion-card> -->\n\n  <!--\n      <ion-row>\n          <ion-card class="quick-action" (click)="getDirections()">\n              <ion-card-content>\n                  <ion-icon name="compass"></ion-icon>\n                  <span>Wegeplan</span>\n              </ion-card-content>\n          </ion-card>\n      </ion-row>\n\n      <ion-row>\n          <ion-card class="quick-action" (click)="openFacebookPage()">\n              <ion-card-content>\n                  <ion-icon name="question"></ion-icon>\n                  <span>Häufige Fragen</span>\n              </ion-card-content>\n          </ion-card>\n      </ion-row>\n  -->\n\n</ion-content>\n<ion-footer (click)="goToLoginPage()" *ngIf="footerNeed" style="z-index: 500000; margin-top: 120px" no-border>\n  <ion-toolbar color="primary">\n    <ion-title><span style="color: #5b5b5b">Hier zum Login</span></ion-title>\n    <ion-buttons end>\n      <button style="color: white" ion-button icon-only>\n        <ion-icon name="arrow-forward"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_manager_auth_manager__["a" /* AuthManagerProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_gui_manager_gui_manager__["a" /* GuiManagerProvider */]])
     ], HomePage);
@@ -232,14 +293,14 @@ var ElectronProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_manager_storage_manager__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gui_manager_gui_manager__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_api__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__otp_otp__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__otp_otp__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__platform_manager_platform_manager__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__link_manager_link_manager__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__link_manager_link_manager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_checkin_conditions__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_checkin_conditions__ = __webpack_require__(453);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__draw_draw__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__form_manager_form_manager__ = __webpack_require__(402);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1168,15 +1229,15 @@ var CheckinServiceProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_modal__ = __webpack_require__(614);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_modal__ = __webpack_require__(622);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__electron_electron__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_is_cordova_available__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_is_cordova_available__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_manager_storage_manager__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gui_manager_gui_manager__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_file__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_file__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_opener__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__otp_otp__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__otp_otp__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__platform_manager_platform_manager__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1851,10 +1912,10 @@ var DrawProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_background_fetch__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_phonegap_local_notification__ = __webpack_require__(401);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__file_manager_file_manager__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_firebase__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_firebase__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_api__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__electron_electron__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_is_cordova_available__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_is_cordova_available__ = __webpack_require__(80);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2193,31 +2254,31 @@ webpackEmptyAsyncContext.id = 215;
 
 var map = {
 	"../pages/calendar.module/calendar/calendar.module": [
-		665,
+		663,
 		5
 	],
 	"../pages/calendar.module/event-modal/event-modal.module": [
-		663,
+		664,
 		34
 	],
 	"../pages/checkin-for-doctors/checkin-for-doctors.module": [
-		664,
+		665,
 		33
 	],
 	"../pages/checkin/checkin.module": [
-		669,
+		666,
 		32
 	],
 	"../pages/debugger/debugger.module": [
-		666,
+		667,
 		31
 	],
 	"../pages/document/document.module": [
-		667,
+		668,
 		30
 	],
 	"../pages/draw/draw.module": [
-		668,
+		669,
 		29
 	],
 	"../pages/email-confirmation/email-confirmation.module": [
@@ -2229,23 +2290,23 @@ var map = {
 		27
 	],
 	"../pages/food-card/food-card.module": [
-		672,
+		673,
 		26
 	],
 	"../pages/imprint/imprint.module": [
-		674,
+		672,
 		25
 	],
 	"../pages/info-item/info-item.module": [
-		673,
+		674,
 		24
 	],
 	"../pages/info-list/info-list.module": [
-		675,
+		676,
 		4
 	],
 	"../pages/intro-slider/intro-slider.module": [
-		676,
+		675,
 		23
 	],
 	"../pages/login/login.module": [
@@ -2265,15 +2326,15 @@ var map = {
 		21
 	],
 	"../pages/news-list/news-list.module": [
-		681,
+		683,
 		0
 	],
 	"../pages/news/news.module": [
-		683,
+		682,
 		20
 	],
 	"../pages/password-reset/password-reset.module": [
-		682,
+		681,
 		19
 	],
 	"../pages/privacy/privacy.module": [
@@ -2289,11 +2350,11 @@ var map = {
 		16
 	],
 	"../pages/text/text.module": [
-		688,
+		686,
 		15
 	],
 	"../pages/therapy-entry/therapy-entry.module": [
-		686,
+		688,
 		14
 	],
 	"../pages/tos/tos.module": [
@@ -2309,7 +2370,7 @@ var map = {
 		11
 	],
 	"../pages/user-settings-create-account/user-settings-create-account.module": [
-		694,
+		693,
 		10
 	],
 	"../pages/user-settings-fingerprint-activation/user-settings-fingerprint-activation.module": [
@@ -2317,19 +2378,19 @@ var map = {
 		9
 	],
 	"../pages/user-settings-message-center/user-settings-message-center.module": [
-		693,
+		694,
 		8
 	],
 	"../pages/user-settings-push-notification/user-settings-push-notification.module": [
-		695,
+		696,
 		7
 	],
 	"../pages/user-settings-refill-keys/user-settings-refill-keys.module": [
-		697,
+		695,
 		6
 	],
 	"../pages/user-settings/user-settings.module": [
-		696,
+		697,
 		1
 	]
 };
@@ -2357,7 +2418,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2444,9 +2505,8 @@ var StorageManagerProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__link_manager_link_manager__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__link_manager_link_manager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_statics__ = __webpack_require__(78);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2456,7 +2516,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -2490,34 +2549,34 @@ var GuiManagerProvider = /** @class */ (function () {
                 },
             ]];
         this.tiles = [[
-                {
-                    title: 'Infocenter',
-                    path: 'slides',
-                    icon: 'assets/information/icon.svg',
-                    component: 'InfoListPage',
-                    loader: null
-                },
-                {
-                    title: 'Wegeplan',
-                    path: 'map',
-                    icon: 'assets/map/icon.svg',
-                    component: 'MapPage',
-                    loader: null
-                },
-                {
-                    title: 'News',
-                    path: 'slides',
-                    icon: 'assets/news/icon.svg',
-                    component: 'NewsListPage',
-                    loader: null
-                }
+            // {
+            //   title: 'Infocenter',
+            //   path: 'slides',
+            //   icon: 'assets/information/icon.svg',
+            //   component: 'InfoListPage',
+            //   loader: null
+            // },
+            // {
+            //   title: 'Wegeplan',
+            //   path: 'map',
+            //   icon: 'assets/map/icon.svg',
+            //   component: 'MapPage',
+            //   loader: null
+            // },
+            // {
+            //   title: 'News',
+            //   path: 'slides',
+            //   icon: 'assets/news/icon.svg',
+            //   component: 'NewsListPage',
+            //   loader: null
+            // }
             ]];
         this.pages = {
             Anwendungen: [
-                /*{title: 'Speiseplan', component: 'FoodCardPage', icon: 'assets/food-card/icon.svg'},*/
-                { title: 'Infocenter', component: 'InfoListPage', icon: 'assets/information/icon.svg' },
-                { title: 'Wegeplan', component: 'MapPage', icon: 'assets/map/icon.svg' },
-                { title: 'News', component: 'NewsListPage', icon: 'assets/news/icon.svg' }
+            /*{title: 'Speiseplan', component: 'FoodCardPage', icon: 'assets/food-card/icon.svg'},*/
+            // {title: 'Infocenter', component: 'InfoListPage', icon: 'assets/information/icon.svg'},
+            // {title: 'Wegeplan', component: 'MapPage', icon: 'assets/map/icon.svg'},
+            // {title: 'News', component: 'NewsListPage', icon: 'assets/news/icon.svg'}
             ],
             Einstellungen: [
                 { title: 'Login', component: 'LoginPage', icon: '' },
@@ -2654,29 +2713,31 @@ var GuiManagerProvider = /** @class */ (function () {
      */
     GuiManagerProvider.prototype.afterLoginForPatient = function () {
         //    console.log("afterLoginForPatient");
-        this.tiles[0].splice(1, 0, {
-            title: 'Speiseplan',
-            path: 'slides',
-            icon: 'assets/food-card/icon.svg',
-            component: 'FoodCardPage',
-            loader: null
-        });
-        if (__WEBPACK_IMPORTED_MODULE_5__services_statics__["a" /* Info */].projectId == 'wzk') {
-            this.tiles[0].splice(2, 0, {
-                title: 'Terminplaner',
-                path: 'slides',
-                icon: 'assets/calendar/icon.svg',
-                component: 'CalendarPage',
-                loader: null
-            });
-        }
-        this.tiles[0].unshift({
-            title: 'Dokumente',
-            path: 'slides',
-            icon: 'assets/document/icon.svg',
-            component: 'DocumentPage',
-            loader: "docs"
-        });
+        // this.tiles[0].splice(1, 0,
+        // {
+        //   title: 'Speiseplan',
+        //   path: 'slides',
+        //   icon: 'assets/food-card/icon.svg',
+        //   component: 'FoodCardPage',
+        //   loader: null
+        // });
+        // if (Info.projectId == 'wzk') {
+        //   this.tiles[0].splice(2, 0,
+        //     {
+        //       title: 'Terminplaner',
+        //       path: 'slides',
+        //       icon: 'assets/calendar/icon.svg',
+        //       component: 'CalendarPage',
+        //       loader: null
+        //     });
+        // }
+        // this.tiles[0].unshift({
+        //   title: 'Dokumente',
+        //   path: 'slides',
+        //   icon: 'assets/document/icon.svg',
+        //   component: 'DocumentPage',
+        //   loader: "docs"
+        // });
         this.tiles[0].unshift({
             title: 'Patientenaufnahme',
             path: 'slides',
@@ -2684,11 +2745,11 @@ var GuiManagerProvider = /** @class */ (function () {
             component: 'CheckinPage',
             loader: "checkin"
         });
-        if (__WEBPACK_IMPORTED_MODULE_5__services_statics__["a" /* Info */].projectId == 'wzk') {
-            this.appendPage("Anwendungen", "Terminplaner", "CalendarPage", 'assets/calendar/icon.svg', null);
-        }
-        this.appendPage("Anwendungen", "Dokumente", "DocumentPage", 'assets/document/icon.svg', "docs");
-        this.prependPage("Anwendungen", "Speiseplan", "FoodCardPage", 'assets/food-card/icon.svg');
+        // if (Info.projectId == 'wzk') {
+        //   this.appendPage("Anwendungen", "Terminplaner", "CalendarPage", 'assets/calendar/icon.svg', null);
+        // }
+        // this.appendPage("Anwendungen", "Dokumente", "DocumentPage", 'assets/document/icon.svg', "docs");
+        // this.prependPage("Anwendungen", "Speiseplan", "FoodCardPage", 'assets/food-card/icon.svg');
         this.prependPage("Anwendungen", "Patientenaufnahme", "CheckinPage", 'assets/checkin/icon.svg', "checkin");
         this.appendPage("Einstellungen", 'Einstellungen', 'UserSettingsPage');
         this.removeByName("Einstellungen", 'Login'); // Remove login from menu
@@ -2699,10 +2760,10 @@ var GuiManagerProvider = /** @class */ (function () {
         this.tiles[0].splice(0, 2);
         this.tiles[0].splice(1, 1);
         this.removeTileByName('Terminplaner');
-        this.removeByName('Anwendungen', 'Dokumente');
-        this.removeByName('Anwendungen', 'Terminplaner');
+        // this.removeByName('Anwendungen', 'Dokumente');
+        // this.removeByName('Anwendungen', 'Terminplaner');
         this.removeByName('Anwendungen', 'Patientenaufnahme');
-        this.removeByName('Anwendungen', 'Speiseplan');
+        // this.removeByName('Anwendungen', 'Speiseplan');
         this.removeByName('Einstellungen', 'Einstellungen');
         this.prependPage("Einstellungen", "Intro", "IntroSliderPage");
         this.prependPage("Einstellungen", "Login", "LoginPage");
@@ -2723,8 +2784,8 @@ var GuiManagerProvider = /** @class */ (function () {
             loader: null
         });
         this.removeByName('Anwendungen', 'Infocenter');
-        this.removeByName('Anwendungen', 'Wegeplan');
-        this.removeByName('Anwendungen', 'Speiseplan');
+        // this.removeByName('Anwendungen', 'Wegeplan');
+        // this.removeByName('Anwendungen', 'Speiseplan');
         this.removeByName('Anwendungen', 'News');
         this.prependPage("Anwendungen", "Patientenaufnahme", "CheckinForDoctorsPage", 'assets/checkin/icon.svg');
         this.appendPage("Einstellungen", 'Einstellungen', 'UserSettingsPage');
@@ -2771,39 +2832,44 @@ var GuiManagerProvider = /** @class */ (function () {
     */
     GuiManagerProvider.prototype.afterLogoutForAufnahme = function () {
         this.tiles[0].splice(0, 1);
-        this.tiles[0].unshift({
-            title: 'Infocenter',
-            path: 'slides',
-            icon: 'assets/information/icon.svg',
-            component: 'InfoListPage',
-            loader: null
-        }, {
-            title: 'Wegeplan',
-            path: 'map',
-            icon: 'assets/map/icon.svg',
-            component: 'MapPage',
-            loader: null
-        }, {
-            title: 'Speiseplan',
-            path: 'slides',
-            icon: 'assets/food-card/icon.svg',
-            component: 'FoodCardPage',
-            loader: null
-        }, {
-            title: 'News',
-            path: 'slides',
-            icon: 'assets/news/icon.svg',
-            component: 'NewsListPage',
-            loader: null
-        });
+        this.tiles[0].unshift(
+        // {
+        //   title: 'Infocenter',
+        //   path: 'slides',
+        //   icon: 'assets/information/icon.svg',
+        //   component: 'InfoListPage',
+        //   loader: null
+        // },
+        // {
+        //   title: 'Wegeplan',
+        //   path: 'map',
+        //   icon: 'assets/map/icon.svg',
+        //   component: 'MapPage',
+        //   loader: null
+        // },
+        // {
+        //   title: 'Speiseplan',
+        //   path: 'slides',
+        //   icon: 'assets/food-card/icon.svg',
+        //   component: 'FoodCardPage',
+        //   loader: null
+        // },
+        // {
+        //   title: 'News',
+        //   path: 'slides',
+        //   icon: 'assets/news/icon.svg',
+        //   component: 'NewsListPage',
+        //   loader: null
+        // }
+        );
         this.removeByName('Anwendungen', 'Patientenaufnahme');
         this.removeByName('Einstellungen', 'Einstellungen');
         this.prependPage("Einstellungen", "Intro", "IntroSliderPage");
         this.prependPage("Einstellungen", "Login", "LoginPage");
-        this.appendPage("Anwendungen", "Speiseplan", "FoodCardPage", "assets/food-card/icon.svg");
-        this.appendPage("Anwendungen", "News", "NewsListPage", "assets/news/icon.svg");
-        this.appendPage("Anwendungen", "Wegeplan", "MapPage", "assets/map/icon.svg");
-        this.appendPage("Anwendungen", "Infocenter", "InfoListPage", "assets/information/icon.svg");
+        // this.appendPage("Anwendungen", "Speiseplan", "FoodCardPage", "assets/food-card/icon.svg");
+        // this.appendPage("Anwendungen", "News", "NewsListPage", "assets/news/icon.svg");
+        // this.appendPage("Anwendungen", "Wegeplan", "MapPage", "assets/map/icon.svg");
+        // this.appendPage("Anwendungen", "Infocenter", "InfoListPage", "assets/information/icon.svg");
     };
     GuiManagerProvider.prototype.showLoader = function (text, time) {
         var loader = this.lCtrl.create({
@@ -2887,7 +2953,7 @@ var GuiManagerProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormManagerProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_modal__ = __webpack_require__(622);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_modal__ = __webpack_require__(623);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_manager_storage_manager__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_api__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3177,269 +3243,16 @@ var TouchManagerProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarEvent; });
-var CalendarEvent = /** @class */ (function () {
-    function CalendarEvent(start, end, title, location, notes, allday, message, calendarType, id, typeOfMeeting, attending, participants, practitioner) {
-        if (start === void 0) { start = new Date(); }
-        if (end === void 0) { end = new Date(); }
-        if (title === void 0) { title = ""; }
-        if (location === void 0) { location = ""; }
-        if (notes === void 0) { notes = ""; }
-        if (allday === void 0) { allday = false; }
-        if (message === void 0) { message = ""; }
-        if (calendarType === void 0) { calendarType = CalendarEvent.CLINET_CALENDAR_TYPE; }
-        if (id === void 0) { id = -1; }
-        if (typeOfMeeting === void 0) { typeOfMeeting = CalendarEvent.TYPE1_EVENT_TYPE; }
-        if (attending === void 0) { attending = false; }
-        if (participants === void 0) { participants = ""; }
-        if (practitioner === void 0) { practitioner = ""; }
-        this.title = title;
-        this.location = location;
-        this.notes = notes;
-        this.startTime = start;
-        this.endTime = end;
-        this.allday = allday;
-        this.message = message;
-        this.id = id;
-        this.calendarType = calendarType;
-        this.typeOfMeeting = typeOfMeeting;
-        this.attending = attending;
-        this.participants = participants;
-        this.practitioner = practitioner;
-    }
-    CalendarEvent.getEventTypeByNumber = function (type) {
-        if (type == CalendarEvent.TYPE1_EVENT_TYPE)
-            return CalendarEvent.TYPE1_EVENT_TYPE_TEXT;
-        if (type == CalendarEvent.TYPE2_EVENT_TYPE)
-            return CalendarEvent.TYPE2_EVENT_TYPE_TEXT;
-        if (type == CalendarEvent.GLOBAL_EVENT_TYPE)
-            return CalendarEvent.GLOBAL_EVENT_TYPE_TEXT;
-    };
-    CalendarEvent.prototype.getHTMLClassName = function () {
-        //console.log("Cal event, HTML class: ", event);
-        if (this.typeOfMeeting == CalendarEvent.TYPE2_EVENT_TYPE) {
-            return "CustomColorType2";
-        }
-        else {
-            return "CustomColorUnknownType";
-        }
-    };
-    CalendarEvent.CUSTOM_TEXT_FOR_APPLICATION = "--- Created by CLINET application.";
-    CalendarEvent.CLINET_CALENDAR_TYPE = "CLINET";
-    CalendarEvent.GLOBAL_CALENDAR_TYPE = "Global";
-    CalendarEvent.EXTERNAL_CALENDAR_TYPE = "External";
-    CalendarEvent.TYPE1_EVENT_TYPE = 1;
-    CalendarEvent.TYPE2_EVENT_TYPE = 2;
-    CalendarEvent.GLOBAL_EVENT_TYPE = 3;
-    CalendarEvent.TYPE1_EVENT_TYPE_TEXT = "Type1 event";
-    CalendarEvent.TYPE2_EVENT_TYPE_TEXT = "Type2 event";
-    CalendarEvent.GLOBAL_EVENT_TYPE_TEXT = "Global event";
-    CalendarEvent.ALL_EVENT_TYPES = [CalendarEvent.TYPE1_EVENT_TYPE, CalendarEvent.TYPE2_EVENT_TYPE, CalendarEvent.GLOBAL_EVENT_TYPE];
-    return CalendarEvent;
-}());
-
-//# sourceMappingURL=calendarEvent.Model.js.map
-
-/***/ }),
-
-/***/ 452:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Process; });
-var Process = /** @class */ (function () {
-    function Process() {
-    }
-    Process.rulesFullFilled = function (condition, item, currentValues) {
-        //         if (item.id.endsWith('wenn_ja_wie_lang_in_wochen_')) {
-        // //          console.info(item.rules);
-        //         }
-        for (var i = 0; i < item.rules.length; i++) {
-            var current = item.rules[i];
-            if (current.effect != condition)
-                continue;
-            var conditions = current.conditions;
-            for (var c = 0; c < conditions.length; c++) {
-                var currentCondition = conditions[c];
-                var nameSearched = currentCondition.name;
-                var type = currentCondition.type;
-                var value = currentCondition.value;
-                // if (item.id.endsWith('wenn_ja_wie_lang_in_wochen_')) {
-                //     // console.info(currentCondition);
-                //     // console.info(currentValues);
-                // }
-                var actualValue = null;
-                for (var w = 0; w < currentValues.length; w++) {
-                    if (currentValues[w].key == nameSearched) {
-                        if (currentCondition.fromArray) {
-                            actualValue = currentValues[w].value[currentCondition.arrId - 1].ref;
-                        }
-                        else {
-                            actualValue = currentValues[w].value;
-                        }
-                        break;
-                    }
-                }
-                if (actualValue == null) {
-                    switch (condition) {
-                        case "visible": {
-                            return conditions.length == 0;
-                        }
-                        case "disabled": {
-                            return false;
-                        }
-                    }
-                }
-                switch (condition) {
-                    case "visible": {
-                        return Process.parseVisible(type, actualValue, value);
-                    }
-                    case "disabled": {
-                        return Process.parseDisabled(type, actualValue, value);
-                    }
-                }
-            }
-        }
-        switch (condition) {
-            case "visible": {
-                return true;
-            }
-            case "disabled": {
-                return false;
-            }
-            case "required": {
-                return Process.parseRequired(item);
-            }
-        }
-    };
-    /*
-      Returns if the specified Node item or its children have any unfulfilled required Rule.
-      Returns true if any required rule is unfulfilled, false otherwise.
-     */
-    Process.parseRequired = function (item) {
-        if (item.children.length == 0) {
-            for (var _i = 0, _a = item.rules; _i < _a.length; _i++) {
-                var rule = _a[_i];
-                if (rule.effect == "required") {
-                    return !(item.reflector != null && item.reflector != "");
-                }
-            }
-            return false;
-        }
-        else {
-            var required = false;
-            for (var _b = 0, _c = item.rules; _b < _c.length; _b++) {
-                var rule = _c[_b];
-                if (rule.effect == "required") {
-                    required = !(item.reflector != null && item.reflector != "");
-                }
-            }
-            for (var _d = 0, _e = item.children; _d < _e.length; _d++) {
-                var childNode = _e[_d];
-                if (required)
-                    break;
-                required = Process.parseRequired(childNode);
-            }
-            return required;
-        }
-    };
-    Process.parseVisible = function (type, actualValue, value) {
-        switch (type) {
-            case "unchecked": {
-                if (actualValue == true)
-                    return false;
-                break;
-            }
-            case "filled": {
-                if (value) {
-                    if (actualValue.length == 0 || actualValue == false)
-                        return false;
-                }
-                else {
-                    if (actualValue.length != 0 || actualValue == true)
-                        return false;
-                }
-                break;
-            }
-            case "empty": {
-                if (value && actualValue.length != 0)
-                    return false;
-                if (!value && actualValue.length == 0)
-                    return false;
-                break;
-            }
-            case "value": {
-                if (value != actualValue)
-                    return false;
-                break;
-            }
-            case "!value": {
-                if (value == actualValue)
-                    return false;
-                break;
-            }
-        }
-        return true;
-    };
-    Process.parseDisabled = function (type, actualValue, value) {
-        switch (type) {
-            case "unchecked": {
-                if (actualValue == true)
-                    return true;
-                break;
-            }
-            case "filled": {
-                if (value) {
-                    if (actualValue.length == 0)
-                        return true;
-                }
-                else {
-                    if (actualValue.length != 0)
-                        return true;
-                }
-                break;
-            }
-            case "empty": {
-                if (value && actualValue.length == 0)
-                    return true;
-                if (!value && actualValue.length == 0)
-                    return true;
-                break;
-            }
-            case "value": {
-                if (value != actualValue)
-                    return true;
-                break;
-            }
-            case "!value": {
-                if (value == actualValue)
-                    return true;
-                break;
-            }
-        }
-        return false;
-    };
-    return Process;
-}());
-
-//# sourceMappingURL=conditions.js.map
-
-/***/ }),
-
-/***/ 453:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__calendarEvent_Model__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_calendar__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__calendarEvent_Model__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_calendar__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__calendarUserCalendar_Model__ = __webpack_require__(623);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__calendarUserCalendar_Model__ = __webpack_require__(610);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_api__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_is_cordova_available__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_is_cordova_available__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__auth_manager_auth_manager__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__platform_manager_platform_manager__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -4094,6 +3907,259 @@ var CalendarProvider = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 452:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarEvent; });
+var CalendarEvent = /** @class */ (function () {
+    function CalendarEvent(start, end, title, location, notes, allday, message, calendarType, id, typeOfMeeting, attending, participants, practitioner) {
+        if (start === void 0) { start = new Date(); }
+        if (end === void 0) { end = new Date(); }
+        if (title === void 0) { title = ""; }
+        if (location === void 0) { location = ""; }
+        if (notes === void 0) { notes = ""; }
+        if (allday === void 0) { allday = false; }
+        if (message === void 0) { message = ""; }
+        if (calendarType === void 0) { calendarType = CalendarEvent.CLINET_CALENDAR_TYPE; }
+        if (id === void 0) { id = -1; }
+        if (typeOfMeeting === void 0) { typeOfMeeting = CalendarEvent.TYPE1_EVENT_TYPE; }
+        if (attending === void 0) { attending = false; }
+        if (participants === void 0) { participants = ""; }
+        if (practitioner === void 0) { practitioner = ""; }
+        this.title = title;
+        this.location = location;
+        this.notes = notes;
+        this.startTime = start;
+        this.endTime = end;
+        this.allday = allday;
+        this.message = message;
+        this.id = id;
+        this.calendarType = calendarType;
+        this.typeOfMeeting = typeOfMeeting;
+        this.attending = attending;
+        this.participants = participants;
+        this.practitioner = practitioner;
+    }
+    CalendarEvent.getEventTypeByNumber = function (type) {
+        if (type == CalendarEvent.TYPE1_EVENT_TYPE)
+            return CalendarEvent.TYPE1_EVENT_TYPE_TEXT;
+        if (type == CalendarEvent.TYPE2_EVENT_TYPE)
+            return CalendarEvent.TYPE2_EVENT_TYPE_TEXT;
+        if (type == CalendarEvent.GLOBAL_EVENT_TYPE)
+            return CalendarEvent.GLOBAL_EVENT_TYPE_TEXT;
+    };
+    CalendarEvent.prototype.getHTMLClassName = function () {
+        //console.log("Cal event, HTML class: ", event);
+        if (this.typeOfMeeting == CalendarEvent.TYPE2_EVENT_TYPE) {
+            return "CustomColorType2";
+        }
+        else {
+            return "CustomColorUnknownType";
+        }
+    };
+    CalendarEvent.CUSTOM_TEXT_FOR_APPLICATION = "--- Created by CLINET application.";
+    CalendarEvent.CLINET_CALENDAR_TYPE = "CLINET";
+    CalendarEvent.GLOBAL_CALENDAR_TYPE = "Global";
+    CalendarEvent.EXTERNAL_CALENDAR_TYPE = "External";
+    CalendarEvent.TYPE1_EVENT_TYPE = 1;
+    CalendarEvent.TYPE2_EVENT_TYPE = 2;
+    CalendarEvent.GLOBAL_EVENT_TYPE = 3;
+    CalendarEvent.TYPE1_EVENT_TYPE_TEXT = "Type1 event";
+    CalendarEvent.TYPE2_EVENT_TYPE_TEXT = "Type2 event";
+    CalendarEvent.GLOBAL_EVENT_TYPE_TEXT = "Global event";
+    CalendarEvent.ALL_EVENT_TYPES = [CalendarEvent.TYPE1_EVENT_TYPE, CalendarEvent.TYPE2_EVENT_TYPE, CalendarEvent.GLOBAL_EVENT_TYPE];
+    return CalendarEvent;
+}());
+
+//# sourceMappingURL=calendarEvent.Model.js.map
+
+/***/ }),
+
+/***/ 453:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Process; });
+var Process = /** @class */ (function () {
+    function Process() {
+    }
+    Process.rulesFullFilled = function (condition, item, currentValues) {
+        //         if (item.id.endsWith('wenn_ja_wie_lang_in_wochen_')) {
+        // //          console.info(item.rules);
+        //         }
+        for (var i = 0; i < item.rules.length; i++) {
+            var current = item.rules[i];
+            if (current.effect != condition)
+                continue;
+            var conditions = current.conditions;
+            for (var c = 0; c < conditions.length; c++) {
+                var currentCondition = conditions[c];
+                var nameSearched = currentCondition.name;
+                var type = currentCondition.type;
+                var value = currentCondition.value;
+                // if (item.id.endsWith('wenn_ja_wie_lang_in_wochen_')) {
+                //     // console.info(currentCondition);
+                //     // console.info(currentValues);
+                // }
+                var actualValue = null;
+                for (var w = 0; w < currentValues.length; w++) {
+                    if (currentValues[w].key == nameSearched) {
+                        if (currentCondition.fromArray) {
+                            actualValue = currentValues[w].value[currentCondition.arrId - 1].ref;
+                        }
+                        else {
+                            actualValue = currentValues[w].value;
+                        }
+                        break;
+                    }
+                }
+                if (actualValue == null) {
+                    switch (condition) {
+                        case "visible": {
+                            return conditions.length == 0;
+                        }
+                        case "disabled": {
+                            return false;
+                        }
+                    }
+                }
+                switch (condition) {
+                    case "visible": {
+                        return Process.parseVisible(type, actualValue, value);
+                    }
+                    case "disabled": {
+                        return Process.parseDisabled(type, actualValue, value);
+                    }
+                }
+            }
+        }
+        switch (condition) {
+            case "visible": {
+                return true;
+            }
+            case "disabled": {
+                return false;
+            }
+            case "required": {
+                return Process.parseRequired(item);
+            }
+        }
+    };
+    /*
+      Returns if the specified Node item or its children have any unfulfilled required Rule.
+      Returns true if any required rule is unfulfilled, false otherwise.
+     */
+    Process.parseRequired = function (item) {
+        if (item.children.length == 0) {
+            for (var _i = 0, _a = item.rules; _i < _a.length; _i++) {
+                var rule = _a[_i];
+                if (rule.effect == "required") {
+                    return !(item.reflector != null && item.reflector != "");
+                }
+            }
+            return false;
+        }
+        else {
+            var required = false;
+            for (var _b = 0, _c = item.rules; _b < _c.length; _b++) {
+                var rule = _c[_b];
+                if (rule.effect == "required") {
+                    required = !(item.reflector != null && item.reflector != "");
+                }
+            }
+            for (var _d = 0, _e = item.children; _d < _e.length; _d++) {
+                var childNode = _e[_d];
+                if (required)
+                    break;
+                required = Process.parseRequired(childNode);
+            }
+            return required;
+        }
+    };
+    Process.parseVisible = function (type, actualValue, value) {
+        switch (type) {
+            case "unchecked": {
+                if (actualValue == true)
+                    return false;
+                break;
+            }
+            case "filled": {
+                if (value) {
+                    if (actualValue.length == 0 || actualValue == false)
+                        return false;
+                }
+                else {
+                    if (actualValue.length != 0 || actualValue == true)
+                        return false;
+                }
+                break;
+            }
+            case "empty": {
+                if (value && actualValue.length != 0)
+                    return false;
+                if (!value && actualValue.length == 0)
+                    return false;
+                break;
+            }
+            case "value": {
+                if (value != actualValue)
+                    return false;
+                break;
+            }
+            case "!value": {
+                if (value == actualValue)
+                    return false;
+                break;
+            }
+        }
+        return true;
+    };
+    Process.parseDisabled = function (type, actualValue, value) {
+        switch (type) {
+            case "unchecked": {
+                if (actualValue == true)
+                    return true;
+                break;
+            }
+            case "filled": {
+                if (value) {
+                    if (actualValue.length == 0)
+                        return true;
+                }
+                else {
+                    if (actualValue.length != 0)
+                        return true;
+                }
+                break;
+            }
+            case "empty": {
+                if (value && actualValue.length == 0)
+                    return true;
+                if (!value && actualValue.length == 0)
+                    return true;
+                break;
+            }
+            case "value": {
+                if (value != actualValue)
+                    return true;
+                break;
+            }
+            case "!value": {
+                if (value == actualValue)
+                    return true;
+                break;
+            }
+        }
+        return false;
+    };
+    return Process;
+}());
+
+//# sourceMappingURL=conditions.js.map
+
+/***/ }),
+
 /***/ 456:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4203,7 +4269,7 @@ var DebuggerProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalContentPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_link_manager_link_manager__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_link_manager_link_manager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4254,7 +4320,7 @@ var ModalContentPage = /** @class */ (function () {
         this.viewCtrl.dismiss();
     };
     ModalContentPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\food-card\modal-box.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <ion-title style="white-space: normal !important;">\n      Menü {{title}}\n    </ion-title>\n    <ion-buttons end>\n      <button item-right ion-button (click)="dismiss()">\n        <span ion-text color="primary" >Schließen</span>\n<ion-icon name="md-close" ></ion-icon>\n</button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-card *ngFor="let food of menuData">\n    <ion-list>\n      <ion-item>\n        <ion-icon name="restaurant" color="primary"></ion-icon> <b>{{food.title}}</b><ion-note item-right><p><ion-icon name=\'clock\'></ion-icon> {{time}}</p></ion-note>\n\n      </ion-item>\n      <div style="padding: 0px 2rem;" [innerHTML]="food.value"></div>\n\n      <ion-item *ngIf="food.calorie">\n        <ion-note>Kalorien:</ion-note> <br/>{{food.calorie}}\n        <ion-note>kcal</ion-note>\n      </ion-item>\n\n\n      <ion-item *ngIf="food.additives">\n        <ion-note>Zusatzstoffe:</ion-note> <br/>{{food.additives}}\n\n      </ion-item>\n      <ion-item *ngIf="food.allergenes">\n        <ion-note>Allergene:</ion-note> <br/>{{food.allergenes}}\n\n        <!-- <h4>Allergene:</h4> {{food.allergenes}} -->\n      </ion-item>\n\n    </ion-list>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\food-card\modal-box.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\food-card\modal-box.html"*/'<ion-header>\n  <ion-toolbar color="primary">\n    <ion-title style="white-space: normal !important;">\n      Menü {{title}}\n    </ion-title>\n    <ion-buttons end>\n      <button item-right ion-button (click)="dismiss()">\n        <span ion-text color="primary" >Schließen</span>\n<ion-icon name="md-close" ></ion-icon>\n</button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-card *ngFor="let food of menuData">\n    <ion-list>\n      <ion-item>\n        <ion-icon name="restaurant" color="primary"></ion-icon> <b>{{food.title}}</b><ion-note item-right><p><ion-icon name=\'clock\'></ion-icon> {{time}}</p></ion-note>\n\n      </ion-item>\n      <div style="padding: 0px 2rem;" [innerHTML]="food.value"></div>\n\n      <ion-item *ngIf="food.calorie">\n        <ion-note>Kalorien:</ion-note> <br/>{{food.calorie}}\n        <ion-note>kcal</ion-note>\n      </ion-item>\n\n\n      <ion-item *ngIf="food.additives">\n        <ion-note>Zusatzstoffe:</ion-note> <br/>{{food.additives}}\n\n      </ion-item>\n      <ion-item *ngIf="food.allergenes">\n        <ion-note>Allergene:</ion-note> <br/>{{food.allergenes}}\n\n        <!-- <h4>Allergene:</h4> {{food.allergenes}} -->\n      </ion-item>\n\n    </ion-list>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\food-card\modal-box.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
@@ -4292,9 +4358,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_statics__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_statics__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_manager_storage_manager__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_util_isObject__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_util_isObject__ = __webpack_require__(613);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_util_isObject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_util_isObject__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4659,10 +4725,10 @@ var PlatformManagerProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__file_manager_file_manager__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_manager_storage_manager__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gui_manager_gui_manager__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__otp_otp__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__otp_otp__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__messages_messages__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__checkin_service_checkin_service__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_statics__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_statics__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5209,14 +5275,14 @@ var AuthManagerProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_manager_auth_manager__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_gui_manager_gui_manager__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_storage_manager_storage_manager__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_checkin_service_checkin_service__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_api_api__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_touch_manager_touch_manager__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_touch_id__ = __webpack_require__(403);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_android_fingerprint_auth__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_otp_otp__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_file__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_otp_otp__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_file__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_file_manager_file_manager__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_electron_electron__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_file_opener__ = __webpack_require__(399);
@@ -5227,16 +5293,16 @@ var AuthManagerProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_draw_draw__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_messages_messages__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_debugger_debugger__ = __webpack_require__(456);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_calendar__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_calendar_calendarProvider__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_calendar__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_calendar_calendarProvider__ = __webpack_require__(451);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_file_chooser__ = __webpack_require__(457);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_file_path__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_file_picker__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_background_fetch__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_phonegap_local_notification__ = __webpack_require__(401);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__ionic_native_firebase__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__ionic_native_firebase__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_platform_manager_platform_manager__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_link_manager_link_manager__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_link_manager_link_manager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_activity_tracker_activity_tracker__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_form_manager_form_manager__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__angular_fire__ = __webpack_require__(406);
@@ -5312,41 +5378,41 @@ var AppModule = /** @class */ (function () {
                     autoFocusAssist: false
                 }, {
                     links: [
+                        { loadChildren: '../pages/calendar.module/calendar/calendar.module#CalendarPageModule', name: 'CalendarPage', segment: 'calendar', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/calendar.module/event-modal/event-modal.module#EventModalPageModule', name: 'EventModalPage', segment: 'event-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/checkin-for-doctors/checkin-for-doctors.module#CheckinForDoctorsPageModule', name: 'CheckinForDoctorsPage', segment: 'checkin-for-doctors', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/calendar.module/calendar/calendar.module#CalendarPageModule', name: 'CalendarPage', segment: 'calendar', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/checkin/checkin.module#CheckinPageModule', name: 'CheckinPage', segment: 'checkin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/debugger/debugger.module#DebuggerPageModule', name: 'DebuggerPage', segment: 'debugger', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/document/document.module#DocumentPageModule', name: 'DocumentPage', segment: 'document', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/draw/draw.module#DrawPageModule', name: 'DrawPage', segment: 'draw', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/checkin/checkin.module#CheckinPageModule', name: 'CheckinPage', segment: 'checkin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/email-confirmation/email-confirmation.module#EmailConfirmationPageModule', name: 'EmailConfirmation', segment: 'email-confirmation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/file-upload/file-upload.module#FileUploadPageModule', name: 'FileUploadPage', segment: 'file-upload', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/imprint/imprint.module#ImprintPageModule', name: 'ImprintPage', segment: 'imprint', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/food-card/food-card.module#FoodCardPageModule', name: 'FoodCardPage', segment: 'food-card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/info-item/info-item.module#InfoItemPageModule', name: 'InfoItemPage', segment: 'info-item', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/imprint/imprint.module#ImprintPageModule', name: 'ImprintPage', segment: 'imprint', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/intro-slider/intro-slider.module#IntroSliderPageModule', name: 'IntroSliderPage', segment: 'intro-slider', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/message-center/message-center.module#MessageCenterPageModule', name: 'MessageCenterPage', segment: 'message-center', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news-item/news-item.module#NewsItemPageModule', name: 'NewsItemPage', segment: 'news-item', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/news-list/news-list.module#NewsListPageModule', name: 'NewsListPage', segment: 'news-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/password-reset/password-reset.module#PasswordResetPageModule', name: 'PasswordResetPage', segment: 'password-reset', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news/news.module#NewsPageModule', name: 'NewsPage', segment: 'news', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/news-list/news-list.module#NewsListPageModule', name: 'NewsListPage', segment: 'news-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/privacy/privacy.module#PrivacyPageModule', name: 'PrivacyPage', segment: 'privacy', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/start-filter/start-filter.module#StartFilterPageModule', name: 'StartFilterPage', segment: 'start-filter', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/therapy-entry/therapy-entry.module#TherapyEntryPageModule', name: 'TherapyEntryPage', segment: 'therapy-entry', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/start-text/start-text.module#StartTextPageModule', name: 'StartTextPage', segment: 'start-text', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/text/text.module#TextPageModule', name: 'TextPage', segment: 'text', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/start-text/start-text.module#StartTextPageModule', name: 'StartTextPage', segment: 'start-text', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/therapy-entry/therapy-entry.module#TherapyEntryPageModule', name: 'TherapyEntryPage', segment: 'therapy-entry', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tos/tos.module#TosPageModule', name: 'TosPage', segment: 'tos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-account-information/user-settings-account-information.module#UserSettingsAccountInformationPageModule', name: 'UserSettingsAccountInformationPage', segment: 'user-settings-account-information', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-change-password/user-settings-change-password.module#UserSettingsChangePasswordPageModule', name: 'UserSettingsChangePasswordPage', segment: 'user-settings-change-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-fingerprint-activation/user-settings-fingerprint-activation.module#UserSettingsFingerprintActivationPageModule', name: 'UserSettingsFingerprintActivationPage', segment: 'user-settings-fingerprint-activation', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user-settings-message-center/user-settings-message-center.module#UserSettingsMessageCenterPageModule', name: 'UserSettingsMessageCenterPage', segment: 'user-settings-message-center', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-create-account/user-settings-create-account.module#UserSettingsCreateAccountPageModule', name: 'UserSettingsCreateAccountPage', segment: 'user-settings-create-account', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user-settings-message-center/user-settings-message-center.module#UserSettingsMessageCenterPageModule', name: 'UserSettingsMessageCenterPage', segment: 'user-settings-message-center', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user-settings-refill-keys/user-settings-refill-keys.module#UserSettingsRefillKeysPageModule', name: 'UserSettingsRefillKeysPage', segment: 'user-settings-refill-keys', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-settings-push-notification/user-settings-push-notification.module#UserSettingsPushNotificationPageModule', name: 'UserSettingsPushNotificationPage', segment: 'user-settings-push-notification', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user-settings/user-settings.module#UserSettingsPageModule', name: 'UserSettingsPage', segment: 'user-settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user-settings-refill-keys/user-settings-refill-keys.module#UserSettingsRefillKeysPageModule', name: 'UserSettingsRefillKeysPage', segment: 'user-settings-refill-keys', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/user-settings/user-settings.module#UserSettingsPageModule', name: 'UserSettingsPage', segment: 'user-settings', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10__ionic_storage__["a" /* IonicStorageModule */].forRoot({ name: '__mydb', driverOrder: ['sqlite', 'websql', 'indexeddb', 'localstorage'] }),
@@ -5697,7 +5763,27 @@ webpackContext.id = 602;
 
 /***/ }),
 
-/***/ 614:
+/***/ 610:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserCalendar; });
+var UserCalendar = /** @class */ (function () {
+    function UserCalendar(name, displayname, id, sync) {
+        if (sync === void 0) { sync = false; }
+        this.name = name;
+        this.displayname = displayname;
+        this.id = id;
+        this.sync = sync;
+    }
+    return UserCalendar;
+}());
+
+//# sourceMappingURL=calendarUserCalendar.Model.js.map
+
+/***/ }),
+
+/***/ 622:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5713,7 +5799,7 @@ var File = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 622:
+/***/ 623:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6384,26 +6470,6 @@ var WebForm = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 623:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserCalendar; });
-var UserCalendar = /** @class */ (function () {
-    function UserCalendar(name, displayname, id, sync) {
-        if (sync === void 0) { sync = false; }
-        this.name = name;
-        this.displayname = displayname;
-        this.id = id;
-        this.sync = sync;
-    }
-    return UserCalendar;
-}());
-
-//# sourceMappingURL=calendarUserCalendar.Model.js.map
-
-/***/ }),
-
 /***/ 627:
 /***/ (function(module, exports) {
 
@@ -6572,7 +6638,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
     ], MyApp.prototype, "content", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\ger\wzk\front\3\clinic_app_frontend\src\app\app.html"*/'<ion-menu id="leftMenu" type="overlay" [content]="content">\n  <ion-header>\n    <ion-toolbar>\n\n      <button *ngIf="showMsgCenter" icon-only style="margin-left: 5px; background-color: transparent" (click)="openMessageCenter()">\n        <ion-icon name="mail" style="font-size: 35px; color: #ffd512;"></ion-icon>\n      </button>\n      <!--button icon-only style="margin-left: 5px; background-color: transparent" (click)="openDrawer()">\n        Draw\n      </button-->\n      <ion-title></ion-title>\n    </ion-toolbar>\n    <!--<ion-toolbar *ngIf="loggedIn" color="primary" text-center>\n      <ion-item ion-item color="primary" no-lines text-left>\n        <ion-avatar item-start>\n          <img [src]="profile_pic">\n        </ion-avatar>\n        <div ion-text color="text-color">\n          {{fullname}} really long name rip papadopoulos\n        </div>\n      </ion-item>\n      <ion-list>\n        <button ion-item>\n          <ion-avatar item-start>\n            <img [src]="profile_pic">\n          </ion-avatar>\n          {{fullname}} really long name rip papadopoulos\n        </button>\n      </ion-list>\n\n      &lt;!&ndash;<ion-buttons>\n        <button ion-button outline full icon-start color="text-color" menuClose (click)="goEditProfile()" padding margin-bottom="1px" text-capitalize="false">\n          <ion-icon name="contact"></ion-icon>\n          Edit profile\n        </button>\n        <button ion-button outline full icon-start color="text-color" menuClose (click)="logout()" padding margin-bottom="1px" text-capitalize="false">\n          <ion-icon name="log-out"></ion-icon>\n          Log out\n        </button>\n      </ion-buttons>&ndash;&gt;\n    </ion-toolbar>-->\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose detail-none ion-item (click)="openHomePage()">\n        Home <img item-right class="image-icon" src="assets/home/icon.svg">\n      </button>\n      <div *ngFor="let key of pageKeys">\n        <ion-item-divider color="white">\n          {{key}}\n        </ion-item-divider>\n        <div *ngFor="let p of sitesFromKey(key)">\n\n          <button menuClose detail-none ion-item *ngIf="!checkDisabled(p)" (click)="openPage(p)">\n            {{p.title}} <img *ngIf="p.icon" item-right class="image-icon" [src]="p.icon">\n          </button>\n          <button menuClose detail-none ion-item *ngIf="checkDisabled(p)" disabled>\n            {{p.title}}\n            <ion-spinner item-right=""></ion-spinner>\n          </button>\n        </div>\n      </div>\n      <button *ngIf="loggedIn" menuClose ion-item (click)="logout()">Logout</button>\n\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<div>\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n</div>\n'/*ion-inline-end:"C:\ger\wzk\front\3\clinic_app_frontend\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\app\app.html"*/'<ion-menu id="leftMenu" type="overlay" [content]="content">\n  <ion-header>\n    <ion-toolbar>\n\n      <button *ngIf="showMsgCenter" icon-only style="margin-left: 5px; background-color: transparent" (click)="openMessageCenter()">\n        <ion-icon name="mail" style="font-size: 35px; color: #ffd512;"></ion-icon>\n      </button>\n      <!--button icon-only style="margin-left: 5px; background-color: transparent" (click)="openDrawer()">\n        Draw\n      </button-->\n      <ion-title></ion-title>\n    </ion-toolbar>\n    <!--<ion-toolbar *ngIf="loggedIn" color="primary" text-center>\n      <ion-item ion-item color="primary" no-lines text-left>\n        <ion-avatar item-start>\n          <img [src]="profile_pic">\n        </ion-avatar>\n        <div ion-text color="text-color">\n          {{fullname}} really long name rip papadopoulos\n        </div>\n      </ion-item>\n      <ion-list>\n        <button ion-item>\n          <ion-avatar item-start>\n            <img [src]="profile_pic">\n          </ion-avatar>\n          {{fullname}} really long name rip papadopoulos\n        </button>\n      </ion-list>\n\n      &lt;!&ndash;<ion-buttons>\n        <button ion-button outline full icon-start color="text-color" menuClose (click)="goEditProfile()" padding margin-bottom="1px" text-capitalize="false">\n          <ion-icon name="contact"></ion-icon>\n          Edit profile\n        </button>\n        <button ion-button outline full icon-start color="text-color" menuClose (click)="logout()" padding margin-bottom="1px" text-capitalize="false">\n          <ion-icon name="log-out"></ion-icon>\n          Log out\n        </button>\n      </ion-buttons>&ndash;&gt;\n    </ion-toolbar>-->\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose detail-none ion-item (click)="openHomePage()">\n        Home <img item-right class="image-icon" src="assets/home/icon.svg">\n      </button>\n      <div *ngFor="let key of pageKeys">\n        <ion-item-divider color="white">\n          {{key}}\n        </ion-item-divider>\n        <div *ngFor="let p of sitesFromKey(key)">\n\n          <button menuClose detail-none ion-item *ngIf="!checkDisabled(p)" (click)="openPage(p)">\n            {{p.title}} <img *ngIf="p.icon" item-right class="image-icon" [src]="p.icon">\n          </button>\n          <button menuClose detail-none ion-item *ngIf="checkDisabled(p)" disabled>\n            {{p.title}}\n            <ion-spinner item-right=""></ion-spinner>\n          </button>\n        </div>\n      </div>\n      <button *ngIf="loggedIn" menuClose ion-item (click)="logout()">Logout</button>\n\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<div>\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n</div>\n'/*ion-inline-end:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_5__providers_gui_manager_gui_manager__["a" /* GuiManagerProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_manager_auth_manager__["a" /* AuthManagerProvider */],
@@ -6610,70 +6676,9 @@ var environment = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Info; });
-var Info = /** @class */ (function () {
-    function Info() {
-    }
-    /**/
-    /*
-      public static backendUrl = "https://demobackend.clinetplatforms.com/backend";
-      public static apiURL = "https://demo.clinetplatforms.com/api";
-      public static testOtpKeyUrl = "https://demo.clinetplatforms.com/files/template/";
-      /**/
-    /*
-        public static backendUrl = "https://devbackend.clinetplatforms.com/backend";
-        public static apiURL = "https://dev.clinetplatforms.com/api";
-        public static testOtpKeyUrl = "https://demo.clinetplatforms.com/files/template/";
-        /**/
-    /**
-     * Returns the full path for the api or backend service,
-     * combining the main url of each service with the path specified.
-     * @param path The URI path that you want to merge
-     * @param api Set to true if the URI is on the API service, false if the URI is on the backend/drupal service. Default: false
-     */
-    Info.merge = function (path, api) {
-        if (api === void 0) { api = false; }
-        return (api ? this.apiURL : this.backendUrl()) + path;
-    };
-    Info.backendUrl = function () {
-        if (this.debug == true) {
-            return this.backendUrlDev;
-        }
-        else {
-            return this.backendUrlProd;
-        }
-    };
-    Info.debug = !true;
-    /*This is the main repository for the WZK app*/
-    /*
-    public static backendUrl = "http://backend.clinetplatforms.com/backend";
-    public static apiURL = "https://api.clinetplatforms.com:8243";
-    public static testOtpKeyUrl = "https://api.clinetplatforms.com/files/template/";
-    /**/
-    // Internal project ID
-    Info.projectId = "wzk";
-    Info.backendUrlProd = "https://wappbackend.wz-kliniken.de/backend";
-    Info.backendUrlDev = "http://clinet.drupal.local";
-    Info.backendOauthClientId = "6349e81a-5e76-4398-ad31-2c62e76b5834";
-    Info.backendOauthClientPassword = "qqUefZtu2f4GsWwk";
-    Info.backendOauthClientScope = "app";
-    Info.apiURL = "https://wappapi.wz-kliniken.de/api";
-    Info.testOtpKeyUrl = "https://wappapi.wz-kliniken.de/files/template/";
-    Info.showCalendarAfter = new Date('2021-03-01 00:00:01');
-    return Info;
-}());
-
-//# sourceMappingURL=statics.js.map
-
-/***/ }),
-
-/***/ 79:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LinkManagerProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_statics__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_statics__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6796,7 +6801,7 @@ var LinkManagerProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 80:
+/***/ 79:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6805,11 +6810,11 @@ var LinkManagerProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__storage_manager_storage_manager__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_statics__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_statics__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gui_manager_gui_manager__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__platform_manager_platform_manager__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -7441,7 +7446,7 @@ var OtpProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 81:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

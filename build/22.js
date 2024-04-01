@@ -49,10 +49,10 @@ var LoginPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_touch_manager_touch_manager__ = __webpack_require__(450);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_gui_manager_gui_manager__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_storage_manager_storage_manager__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_link_manager_link_manager__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_link_manager_link_manager__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_fire_auth__ = __webpack_require__(454);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_electron_electron__ = __webpack_require__(109);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -120,7 +120,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  */
 var LoginPage = /** @class */ (function () {
     function LoginPage(navCtrl, modalCtrl, navParams, authManager, formBuilder, touchManager, guiManager, modelCtrl, storageManager, linkManager, electron, platform, afAuth) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.modalCtrl = modalCtrl;
         this.navParams = navParams;
@@ -133,87 +132,41 @@ var LoginPage = /** @class */ (function () {
         this.electron = electron;
         this.platform = platform;
         this.afAuth = afAuth;
-        this.registrationcode = "";
-        this.username = "";
-        this.usernameTwo = "";
-        this.authkey = "";
-        this.passwordOne = "";
-        this.passwordTwo = "";
+        this.registrationcode = '';
+        this.username = '';
+        this.usernameTwo = '';
+        this.authkey = '';
+        this.passwordOne = '';
+        this.passwordTwo = '';
         this.registerLogin = "login";
-        this.birthday = "";
-        this.fallnummer = "";
+        this.birthday = '';
+        this.fallnummer = '';
         this.showHelpText = true;
         this.privacyChecked = false;
         this.agbChecked = false;
         this.personalDataChecked = false;
-        this.loginPassword = "";
-        this.regexString = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-        this.passwordType = "password";
-        this.passwordIcon = "eye-off";
-        this.errormessage = "";
+        this.loginPassword = '';
+        this.passwordType = 'password';
+        this.passwordIcon = 'eye-off';
         this.loginForm = formBuilder.group({
-            loginEmail: [
-                this.username,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([
-                    __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"),
-                    __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required,
-                ]),
-            ],
-            loginPass: [
-                this.loginPassword,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].minLength(5), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]),
-            ],
+            loginEmail: [this.username, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required])],
+            loginPass: [this.loginPassword, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].minLength(5), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required])]
         });
         this.registerForm = formBuilder.group({
             /*code: [this.authkey, Validators.compose([Validators.maxLength(15), Validators.minLength(12), Validators.required])],*/
-            birthday: [
-                this.birthday,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([
-                    __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required,
-                    __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern("^[0-3][0-9][.][0-1][0-9][.][0-9]{4}$"),
-                ]),
-            ],
-            registrationcode: [
-                this.registrationcode,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]),
-            ],
-            email: [
-                this.username,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([
-                    __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern(this.regexString),
-                    __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required,
-                ]),
-            ],
-            email2: [this.usernameTwo, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-            pass: [
-                this.passwordOne,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].minLength(6), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern('^(?=.*[a-zA-Z])(?=.*\\d).+$'), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]),
-            ],
-            pass2: [
-                this.passwordTwo,
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].minLength(6), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern('^(?=.*[a-zA-Z])(?=.*\\d).+$'), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]),
-            ],
-        });
-        this.registerForm.controls["email2"].valueChanges.subscribe(function (checked) {
-            if (checked !== _this.username) {
-                _this.registerForm.controls["email2"].setErrors({ incorrect: true });
-            }
-        });
-        this.registerForm.controls["email"].valueChanges.subscribe(function (checked) {
-            console.log(checked !== _this.usernameTwo);
-            if (checked !== _this.usernameTwo) {
-                _this.registerForm.controls["email2"].setErrors({ incorrect: true });
-            }
-            _this.registerForm.get("email2").updateValueAndValidity();
-            console.log(_this.registerForm.controls["email2"]);
+            birthday: [this.birthday, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern('^[0-3][0-9][.][0-1][0-9][.][0-9]{4}$')])],
+            registrationcode: [this.registrationcode, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required])],
+            email: [this.username, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required])],
+            pass: [this.passwordOne, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].minLength(5), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required])],
+            pass2: [this.passwordTwo, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].minLength(5), __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required])]
         });
     }
     /**
      * Hides or un-hides the password in the UI.
      */
     LoginPage.prototype.hideShowPassword = function () {
-        this.passwordType = this.passwordType === "text" ? "password" : "text";
-        this.passwordIcon = this.passwordIcon === "eye-off" ? "eye" : "eye-off";
+        this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+        this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
     };
     Object.defineProperty(LoginPage.prototype, "loginFormValid", {
         /**
@@ -230,9 +183,7 @@ var LoginPage = /** @class */ (function () {
          * Returns if the registration form is valid
          */
         get: function () {
-            return (this.registerForm.valid &&
-                this.passwordTwo == this.passwordOne &&
-                this.username === this.usernameTwo);
+            return this.registerForm.valid && this.passwordTwo == this.passwordOne && this.username === this.usernameTwo;
         },
         enumerable: false,
         configurable: true
@@ -242,10 +193,7 @@ var LoginPage = /** @class */ (function () {
      * @param enteredDate
      */
     LoginPage.prototype.helpCorrectDate = function (enteredDate) {
-        this.birthday = enteredDate
-            .replace(",", ".")
-            .replace("/", ".")
-            .replace("-", ".");
+        this.birthday = enteredDate.replace(",", ".").replace("/", ".").replace("-", ".");
     };
     /**
      * Transitions view and opens the home page.
@@ -257,96 +205,77 @@ var LoginPage = /** @class */ (function () {
      * Opens the modal for help/instructions on the login process.
      */
     LoginPage.prototype.openInstructionsForRegistration = function () {
-        this.modelCtrl
-            .create("TextPage", {
+        this.modelCtrl.create('TextPage', {
             html: true,
             closeable: true,
-            target: this.linkManager.getRegistrierungsanweisungenAsJSON(),
-        })
-            .present();
+            target: this.linkManager.getRegistrierungsanweisungenAsJSON()
+        }).present();
     };
     /**
      * Registers the user
      */
     LoginPage.prototype.tryRegister = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                if (this.registerForm.controls["email"].value !==
-                    this.registerForm.controls["email2"].value) {
-                    this.registerForm.controls["email2"].setErrors({ incorrect: true });
-                }
-                // this.modalCtrl.create('TextPage', {html: true, closeable: true,}).present();
-                if (this.agbChecked == true && this.privacyChecked == true) {
-                    if (this.registrationcode.length >= 12) {
-                        this.sendEmailVerification().then(function () {
-                            _this.authManager.registerWithInvitationNumber(_this.username, _this.passwordOne, _this.passwordTwo, _this.registrationcode, function (success) { return __awaiter(_this, void 0, void 0, function () {
-                                return __generator(this, function (_a) {
-                                    if (success == true) {
-                                        console.log("success");
-                                    }
-                                    return [2 /*return*/];
-                                });
-                            }); });
-                        });
-                        if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])())
-                            this.handleTouchId(this.username, this.passwordOne);
+        var _this = this;
+        // this.modalCtrl.create('TextPage', {html: true, closeable: true,}).present();
+        if (this.agbChecked == true && this.privacyChecked == true) {
+            if (this.registrationcode.length >= 12) {
+                this.authManager.registerWithInvitationNumber(this.username, this.passwordOne, this.passwordTwo, this.registrationcode, function (success) {
+                    if (success == true) {
+                        _this.sendEmailVerification();
                     }
-                    else {
-                        this.sendEmailVerification().then(function () {
-                            _this.authManager.registerWithFallnummer(_this.username, _this.passwordOne, _this.passwordTwo, _this.registrationcode, _this.birthday, function (success) {
-                                if (success == true) {
-                                    console.log("success");
-                                }
-                            });
-                        });
-                        if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])())
-                            this.handleTouchId(this.username, this.passwordOne);
+                    if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])())
+                        _this.handleTouchId(_this.username, _this.passwordOne);
+                });
+            }
+            else {
+                this.authManager.registerWithFallnummer(this.username, this.passwordOne, this.passwordTwo, this.registrationcode, this.birthday, function (success) {
+                    if (success == true) {
+                        _this.sendEmailVerification();
                     }
-                }
-                else {
-                    this.guiManager.showToast("Um fortzufahren, müssen Sie mit Datenschutzbestimmungen und Nutzungsbedingungen einverstanden sein.", 5000);
-                }
-                return [2 /*return*/];
-            });
-        });
+                    if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])())
+                        _this.handleTouchId(_this.username, _this.passwordOne);
+                });
+            }
+        }
+        else {
+            this.guiManager.showToast("Um fortzufahren, müssen Sie mit Datenschutzbestimmungen und Nutzungsbedingungen einverstanden sein.", 5000);
+        }
     };
     LoginPage.prototype.sendEmailVerification = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 this.platform.ready().then(function () {
-                    _this.afAuth.auth
-                        .createUserWithEmailAndPassword(_this.username, _this.passwordOne)
+                    var me = _this;
+                    _this.afAuth.auth.createUserWithEmailAndPassword(_this.username, _this.passwordOne)
                         .then(function (credential) {
                         var user = credential.user;
                         user.sendEmailVerification();
                     })
                         .then(function () {
-                        _this.modalCtrl
-                            .create("EmailConfirmation", {
-                            html: true,
+                        _this.modalCtrl.create('EmailConfirmation', { html: true,
                             closeable: false,
                             animated: true,
                             showBackdrop: true,
                             selectedEmail: _this.username,
-                            backdropDismiss: false,
-                        })
-                            .present();
-                        _this.afAuth.authState.subscribe(function (user) {
+                            backdropDismiss: false }).present();
+                        me.afAuth.authState.subscribe(function (user) {
                             console.log(user.emailVerified);
                             if (user && user.emailVerified) {
                                 console.log(user.emailVerified);
                                 // The user has clicked the verification link and their email has been verified.
                                 // Update the registration status in the storage.
-                                _this.storageManager.save("registration", "login", function (result) {
+                                _this.storageManager.save('registration', 'login', function (result) {
                                     console.log("Registration status has been updated in storage.");
                                 });
+                                // Redirect the user to the home page.
+                                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+                                // Handle touch ID authentication (if available).
                                 if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])())
                                     _this.handleTouchId(_this.username, _this.passwordOne);
                             }
                             else {
-                                console.error("No user found.");
+                                console.error('No user found.');
                             }
                         });
                     });
@@ -364,10 +293,10 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.ngOnInit = function () {
         var _this = this;
         console.log("Opening registration/login view");
-        this.storageManager.fetch("registration", function (result) {
+        this.storageManager.fetch('registration', function (result) {
             console.log("Fetched value from storage: ", result);
-            if (result == "login") {
-                _this.registerLogin = "login";
+            if (result == 'login') {
+                _this.registerLogin = 'login';
             }
         });
     };
@@ -379,31 +308,14 @@ var LoginPage = /** @class */ (function () {
      */
     LoginPage.prototype.tryLogin = function () {
         var _this = this;
-        this.afAuth.auth
-            .signInWithEmailAndPassword(this.username, this.loginPassword)
-            .then(function (result) {
-            console.log(result.user.emailVerified);
-            if (result.user.emailVerified) {
-                _this.authManager.login(_this.username, _this.loginPassword, function (success) {
-                    console.log("Trying to log in, success: ", success);
-                    if (success == true) {
-                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                        if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])()) {
-                            _this.handleTouchId(_this.username, _this.loginPassword);
-                        }
-                    }
-                });
+        this.authManager.login(this.username, this.loginPassword, function (success) {
+            console.log("Trying to log in, success: ", success);
+            if (success == true) {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+                if (Object(__WEBPACK_IMPORTED_MODULE_6__services_is_cordova_available__["a" /* isCordovaAvailable */])()) {
+                    _this.handleTouchId(_this.username, _this.loginPassword);
+                }
             }
-            else {
-                _this.errormessage =
-                    "Bitte clicken Sie auf den Verifizierungslink";
-                setTimeout(function () {
-                    _this.errormessage = "";
-                }, 5000);
-            }
-        })
-            .catch(function (error) {
-            window.alert(error.message);
         });
     };
     /**
@@ -411,14 +323,17 @@ var LoginPage = /** @class */ (function () {
      */
     LoginPage.prototype.resetPassword = function () {
         /*
-            const item = this.modalCtrl.create('PasswordResetPage', {
-                ac: 'request'
-            });
-    
-            item.present();*/
-        this.navCtrl.push("PasswordResetPage", {
+        const item = this.modalCtrl.create('PasswordResetPage', {
+            ac: 'request'
+        });
+
+        item.present();*/
+        this.navCtrl.push("mailto:support@clinetplatforms.com", {
             ac: "request",
         });
+        // this.navCtrl.push("PasswordResetPage", {
+        //   ac: "request",
+        // });
     };
     Object.defineProperty(LoginPage.prototype, "loggedVal", {
         get: function () {
@@ -435,7 +350,7 @@ var LoginPage = /** @class */ (function () {
         this.touchManager.check(function (result) {
             if (result) {
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                _this.storageManager.save("registration", "login", function (result) {
+                _this.storageManager.save('registration', 'login', function (result) {
                     console.log("Registration status has been updated in storage.");
                 });
             }
@@ -443,55 +358,39 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.handleKeyPress = function (event, input) {
         if (event.keyCode == 13) {
-            if (input == "login") {
+            if (input == 'login') {
                 this.tryLogin();
             }
-            else if (input == "register") {
+            else if (input == 'register') {
                 this.tryRegister();
             }
         }
     };
     LoginPage.prototype.showAgb = function (agbs) {
         if (agbs) {
-            this.modelCtrl
-                .create("TextPage", {
+            this.modelCtrl.create('TextPage', {
                 html: true,
                 closeable: true,
-                target: this.linkManager.getNutungsbedingungenAsHalJSON(),
-            })
-                .present();
+                target: this.linkManager.getNutungsbedingungenAsHalJSON()
+            }).present();
             return;
         }
-        this.modelCtrl
-            .create("TextPage", {
+        this.modelCtrl.create('TextPage', {
             html: true,
             closeable: true,
-            target: this.linkManager.getDatenschutzAsJSON(),
-        })
-            .present();
+            target: this.linkManager.getDatenschutzAsJSON()
+        }).present();
     };
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-login",template:/*ion-inline-start:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title text-center>Login</ion-title>\n        <ion-buttons end>\n            <button ion-button (click)="openHomePage()">\n                <img class="homeLogoNavBar" src="assets/home/icon.svg">\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <div class="home-hello"\n         style="background:url(assets/login/login.jpg) top center;background-size: cover;background-attachment:scroll;background-repeat:no-repeat;">\n        <div class="hello-title " text-wrap>\n            <div class="">\n                <h1>{{loggedVal}}</h1>\n                <h3 color="secondary">Anmelden</h3> Bitte registrieren oder melden Sie sich an, um auf Ihre persönlichen\n                Dokumente zugreifen\n                zu können.\n            </div>\n        </div>\n    </div>\n    <ion-card>\n        <!--    <ion-segment class="bottomSegment" [(ngModel)]="registerLogin">-->\n        <!--      <ion-segment-button class="bottomSegment" value="login">-->\n        <!--        Login-->\n        <!--      </ion-segment-button>-->\n        <!--      <ion-segment-button class="bottomSegment" value="register">-->\n        <!--        Registrieren-->\n        <!--      </ion-segment-button>-->\n\n        <!--    </ion-segment>-->\n\n\n        <div [ngSwitch]="registerLogin">\n            <ion-list style="padding-bottom: 50px">\n                <!--<ion-item *ngSwitchCase="\'register\'" [formGroup]="registerForm">\n                  <h1>Jetzt starten</h1>\n                  <ion-label floating>Zugangscode eingeben</ion-label>\n                  <ion-input formControlName="code" type="text" name="code" [(ngModel)]="authkey" (keypress)="handleKeyPress($event,\'register\')"></ion-input>\n                  <ion-note>Diesen finden Sie auf Ihrem Schreiben vom Krankenhaus</ion-note>\n                </ion-item>-->\n\n                <ion-item *ngSwitchCase="\'register\'" [formGroup]="registerForm">\n                    <ion-label floating>Fallnummer</ion-label>\n                    <ion-input formControlName="registrationcode" name="registrationcode" [(ngModel)]="registrationcode"\n                               (keypress)="handleKeyPress($event,\'register\')"></ion-input>\n                </ion-item>\n\n                <ion-item *ngSwitchCase="\'register\'" [formGroup]="registerForm">\n                    <ion-label floating>Geburtsdatum (TT.MM.JJJJ)</ion-label>\n                    <ion-input formControlName="birthday" name="birthday" [(ngModel)]="birthday" type="text" value=""\n                               (ionChange)="helpCorrectDate(birthday)"></ion-input>\n                </ion-item>\n\n                <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n                    <ion-label floating>E-Mail Adresse</ion-label>\n                    <ion-input formControlName="email" type="email" [(ngModel)]="username"\n                               (keypress)="handleKeyPress($event,\'register\')"></ion-input>\n                </ion-item>\n\n                <ion-item\n                        [class.ng-valid]="registerForm.controls[\'email\'].value === registerForm.controls[\'email2\'].value"\n                        [class.ng-invalid]="registerForm.controls[\'email\'].value !== registerForm.controls[\'email2\'].value"\n                        [ngClass]="{\'ng-invalid ng-dirty ng-touched\': registerForm.controls[\'email\'].value !== registerForm.controls[\'email2\'].value,\n                        \'ng-valid\':registerForm.controls[\'email\'].value === registerForm.controls[\'email2\'].value}"\n                        [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n                    <ion-label floating>E-Mail Adresse wiederholen\n                    </ion-label>\n                    <ion-input\n                            [class.ng-valid]="registerForm.controls[\'email\'].value === registerForm.controls[\'email2\'].value"\n                            [class.ng-invalid]="registerForm.controls[\'email\'].value !== registerForm.controls[\'email2\'].value"\n                            [ngClass]="{\'ng-invalid ng-dirty ng-touched\': registerForm.controls[\'email\'].value !== registerForm.controls[\'email2\'].value,\n                        \'ng-valid\':registerForm.controls[\'email\'].value === registerForm.controls[\'email2\'].value}"\n                            formControlName="email2" type="email" [(ngModel)]="usernameTwo"\n                            (keypress)="handleKeyPress($event,\'register\')"></ion-input>\n                </ion-item>\n\n                <ion-item [formGroup]="loginForm" *ngSwitchCase="\'login\'">\n                    <ion-label floating>E-Mail Adresse</ion-label>\n                    <ion-input formControlName="loginEmail" type="email" name="username" [(ngModel)]="username"\n                               (keypress)="handleKeyPress($event,\'login\')"></ion-input>\n                </ion-item>\n\n                <ion-item [formGroup]="loginForm" *ngSwitchCase="\'login\'">\n                    <ion-label floating>Passwort</ion-label>\n                    <ion-input formControlName="loginPass" [type]="passwordType" name="loginPassword"\n                               [(ngModel)]="loginPassword" (keypress)="handleKeyPress($event,\'login\')"\n                               clearOnEdit="false"></ion-input>\n                    <ion-icon item-end [name]="passwordIcon" class="passwordIcon"\n                              (click)=\'hideShowPassword()\'></ion-icon>\n                </ion-item>\n                <div *ngIf="errormessage.length>1" class="error-message">\n                    <p >{{errormessage}}</p>\n                </div>\n                <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n                    <ion-label floating>Passwort (mind. 6 Zeichen mit wenigstens: 1 Buchstabe, 1 Nummer. )</ion-label>\n                    <ion-input formControlName="pass" [type]="passwordType" name="passwordOne" [(ngModel)]="passwordOne"\n                               (keypress)="handleKeyPress($event,\'register\')" clearOnEdit="false"></ion-input>\n                    <ion-icon item-end [name]="passwordIcon" class="passwordIcon"\n                              (click)=\'hideShowPassword()\'></ion-icon>\n                </ion-item>\n\n\n                <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n                    <ion-label floating>Passwort wiederholen</ion-label>\n                    <ion-input formControlName="pass2" [type]="passwordType" name="passwordTwo"\n                               [(ngModel)]="passwordTwo" (keypress)="handleKeyPress($event,\'register\')"\n                               clearOnEdit="false"></ion-input>\n                    <ion-icon item-end [name]="passwordIcon" class="passwordIcon"\n                              (click)=\'hideShowPassword()\'></ion-icon>\n                </ion-item>\n\n                <ion-item class="customCheckboxesRegistration" [formGroup]="registerForm" *ngSwitchCase="\'register\'"\n                          style="padding-top: 10px">\n                    <ion-label>Ich habe die Datenschutzerklärung gelesen und stimme dieser zu.\n                    </ion-label>\n                    <ion-checkbox [(ngModel)]="privacyChecked" [ngModelOptions]="{standalone: true}"\n                                  (click)="showAgb(false)"></ion-checkbox>\n                </ion-item>\n\n                <ion-item class="customCheckboxesRegistration" [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n                    <ion-label>Ich stimme den Nutzungsbedingungen zu.\n                    </ion-label>\n                    <ion-checkbox [(ngModel)]="agbChecked" [ngModelOptions]="{standalone: true}"\n                                  (click)="showAgb(true)"></ion-checkbox>\n                </ion-item>\n\n                <ion-item class="customCheckboxesRegistration" [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n                    <ion-label>Ich stimme der Speicherung meiner personenbezogenen Daten zu.</ion-label>\n                    <ion-checkbox [(ngModel)]="personalDataChecked"\n                                  [ngModelOptions]="{standalone: true}"></ion-checkbox>\n                </ion-item>\n\n                <ion-item no-lines>\n                    <!--<p>-->\n                    <button ion-button block default color="primary" *ngSwitchCase="\'register\'"\n                            [disabled]="!registerFormValid"\n                            (click)="tryRegister()">Registrieren\n                    </button>\n                    <button ion-button clear color="text-color" block style="margin-top: 10px" (click)="resetPassword()"\n                            *ngSwitchCase="\'login\'">Passwort vergessen?\n                    </button>\n\n                    <button ion-button block default color="primary" *ngSwitchCase="\'login\'"\n                            [disabled]="!loginFormValid"\n                            (click)="tryLogin()">Login\n                    </button>\n                    <!--</p>-->\n                </ion-item>\n                <ion-segment class="topSegment" style="border-bottom-color: transparent ;">\n                    <ion-segment-button class="topSegment" style="border-bottom-color: transparent ;"\n                                        (click)="openInstructionsForRegistration()">\n                        <div>Hilfe\n                            <div class="info-ball">i</div>\n                        </div>\n                    </ion-segment-button>\n                </ion-segment>\n            </ion-list>\n            <div class="login-box" *ngSwitchCase="\'login\'">\n                <div class="internal-content" *ngIf="showHelpText">\n                    <h1>Sind Sie schon registriert?</h1>\n                    <br>\n                    <p>Bevor Sie die Anwendung in</p>\n                    <p> vollem Umfang nutzen können,</p>\n                    <p> ist eine Registrierung notwendig.</p>\n                    <div class="button-wrapper">\n                        <button ion-button default style="background-color: #5B5B5B; color: white"\n                                (click)="registerLogin =\'register\'">Jetzt registrieren\n                        </button>\n                        <button ion-button default\n                                style="background-color: transparent ; color: #010101; border: 1px solid #5B5B5B;"\n                                (click)="showHelpText=false">Später registrieren\n                        </button>\n\n                    </div>\n\n                    <!-- <button ion-button outline color="secondary" [hidden]="login" (click)="login = true">Login</button> -->\n                    <!-- <button ion-button outline color="secondary" *ngIf="login" (click)="login = false">Registrieren</button> -->\n\n                </div>\n            </div>\n        </div>\n\n    </ion-card>\n\n\n</ion-content>\n'/*ion-inline-end:"C:\ger\wzk\front\3\clinic_app_frontend\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title text-center>Login</ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="openHomePage()">\n        <img class="homeLogoNavBar" src="assets/home/icon.svg" />\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <div\n    class="home-hello"\n    style="\n      background: url(assets/login/login.jpg) top center;\n      background-size: cover;\n      background-attachment: scroll;\n      background-repeat: no-repeat;\n    "\n  >\n    <div class="hello-title" text-wrap>\n      <div class="">\n        <h1>{{loggedVal}}</h1>\n        <h3 color="secondary">Anmelden</h3>\n        Bitte registrieren oder melden Sie sich an, um auf Ihre persönlichen\n        Dokumente zugreifen zu können.\n      </div>\n    </div>\n  </div>\n  <ion-card>\n    <ion-segment class="bottomSegment" [(ngModel)]="registerLogin">\n      <ion-segment-button class="bottomSegment" value="login">\n        Login\n      </ion-segment-button>\n      <ion-segment-button class="bottomSegment" value="register">\n        Registrieren\n      </ion-segment-button>\n    </ion-segment>\n\n    <div [ngSwitch]="registerLogin">\n      <ion-list style="padding-bottom: 50px">\n        <!--<ion-item *ngSwitchCase="\'register\'" [formGroup]="registerForm">\n          <h1>Jetzt starten</h1>\n          <ion-label floating>Zugangscode eingeben</ion-label>\n          <ion-input formControlName="code" type="text" name="code" [(ngModel)]="authkey" (keypress)="handleKeyPress($event,\'register\')"></ion-input>\n          <ion-note>Diesen finden Sie auf Ihrem Schreiben vom Krankenhaus</ion-note>\n        </ion-item>-->\n\n        <ion-item *ngSwitchCase="\'register\'" [formGroup]="registerForm">\n          <ion-label floating>Fallnummer</ion-label>\n          <ion-input\n            formControlName="registrationcode"\n            name="registrationcode"\n            [(ngModel)]="registrationcode"\n            (keypress)="handleKeyPress($event,\'register\')"\n          ></ion-input>\n        </ion-item>\n\n        <ion-item *ngSwitchCase="\'register\'" [formGroup]="registerForm">\n          <ion-label floating>Geburtsdatum (TT.MM.JJJJ)</ion-label>\n          <ion-input\n            formControlName="birthday"\n            name="birthday"\n            [(ngModel)]="birthday"\n            type="text"\n            value=""\n            (ionChange)="helpCorrectDate(birthday)"\n          ></ion-input>\n        </ion-item>\n\n        <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n          <ion-label floating>E-Mail Adresse</ion-label>\n          <ion-input\n            formControlName="email"\n            type="email"\n            name="username"\n            [(ngModel)]="username"\n            (keypress)="handleKeyPress($event,\'register\')"\n          ></ion-input>\n        </ion-item>\n\n        <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n          <ion-label floating>E-Mail Adresse wiedereholen</ion-label>\n          <ion-input\n            formControlName="email"\n            type="email"\n            name="username"\n            [(ngModel)]="usernameTwo"\n            (keypress)="handleKeyPress($event,\'register\')"\n          ></ion-input>\n        </ion-item>\n\n        <ion-item [formGroup]="loginForm" *ngSwitchCase="\'login\'">\n          <ion-label floating>E-Mail Adresse</ion-label>\n          <ion-input\n            formControlName="loginEmail"\n            type="email"\n            name="username"\n            [(ngModel)]="username"\n            (keypress)="handleKeyPress($event,\'login\')"\n          ></ion-input>\n        </ion-item>\n\n        <ion-item [formGroup]="loginForm" *ngSwitchCase="\'login\'">\n          <ion-label floating>Passwort</ion-label>\n          <ion-input\n            formControlName="loginPass"\n            [type]="passwordType"\n            name="loginPassword"\n            [(ngModel)]="loginPassword"\n            (keypress)="handleKeyPress($event,\'login\')"\n            clearOnEdit="false"\n          ></ion-input>\n          <ion-icon\n            item-end\n            [name]="passwordIcon"\n            class="passwordIcon"\n            (click)="hideShowPassword()"\n          ></ion-icon>\n        </ion-item>\n        <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n          <ion-label floating>Passwort (mind. 5 Zeichen)</ion-label>\n          <ion-input\n            formControlName="pass"\n            [type]="passwordType"\n            name="passwordOne"\n            [(ngModel)]="passwordOne"\n            (keypress)="handleKeyPress($event,\'register\')"\n            clearOnEdit="false"\n          ></ion-input>\n          <ion-icon\n            item-end\n            [name]="passwordIcon"\n            class="passwordIcon"\n            (click)="hideShowPassword()"\n          ></ion-icon>\n        </ion-item>\n\n        <ion-item [formGroup]="registerForm" *ngSwitchCase="\'register\'">\n          <ion-label floating>Passwort wiederholen</ion-label>\n          <ion-input\n            formControlName="pass2"\n            [type]="passwordType"\n            name="passwordTwo"\n            [(ngModel)]="passwordTwo"\n            (keypress)="handleKeyPress($event,\'register\')"\n            clearOnEdit="false"\n          ></ion-input>\n          <ion-icon\n            item-end\n            [name]="passwordIcon"\n            class="passwordIcon"\n            (click)="hideShowPassword()"\n          ></ion-icon>\n        </ion-item>\n\n        <ion-item\n          class="customCheckboxesRegistration"\n          [formGroup]="registerForm"\n          *ngSwitchCase="\'register\'"\n          style="padding-top: 10px"\n        >\n          <ion-label\n            >Ich habe die Datenschutzerklärung gelesen und stimme diesen zu.\n          </ion-label>\n          <ion-checkbox\n            [(ngModel)]="privacyChecked"\n            [ngModelOptions]="{standalone: true}"\n            (click)="showAgb(false)"\n          ></ion-checkbox>\n        </ion-item>\n\n        <ion-item\n          class="customCheckboxesRegistration"\n          [formGroup]="registerForm"\n          *ngSwitchCase="\'register\'"\n        >\n          <ion-label>Ich stimme den Nutzungsbedingungen zu. </ion-label>\n          <ion-checkbox\n            [(ngModel)]="agbChecked"\n            [ngModelOptions]="{standalone: true}"\n            (click)="showAgb(true)"\n          ></ion-checkbox>\n        </ion-item>\n\n        <ion-item\n          class="customCheckboxesRegistration"\n          [formGroup]="registerForm"\n          *ngSwitchCase="\'register\'"\n        >\n          <ion-label>I agree to the storage of my personal data.</ion-label>\n          <ion-checkbox\n            [(ngModel)]="personalDataChecked"\n            [ngModelOptions]="{standalone: true}"\n          ></ion-checkbox>\n        </ion-item>\n\n        <ion-item no-lines>\n          <!--<p>-->\n          <button\n            ion-button\n            block\n            default\n            color="primary"\n            *ngSwitchCase="\'register\'"\n            [disabled]="!registerFormValid"\n            (click)="tryRegister()"\n          >\n            Registrieren\n          </button>\n          <a\n            ion-button\n            clear\n            color="text-color"\n            block\n            style="margin-top: 10px"\n            href="mailto:support@clinetplatforms.com"\n            *ngSwitchCase="\'login\'"\n            >Password vergessen?\n          </a>\n\n          <button\n            ion-button\n            block\n            default\n            color="primary"\n            *ngSwitchCase="\'login\'"\n            [disabled]="!loginFormValid"\n            (click)="tryLogin()"\n          >\n            Login\n          </button>\n          <!--</p>-->\n        </ion-item>\n        <ion-segment\n          class="topSegment"\n          style="border-bottom-color: transparent"\n        >\n          <ion-segment-button\n            class="topSegment"\n            style="border-bottom-color: transparent"\n            (click)="openInstructionsForRegistration()"\n          >\n            <div>\n              Hilfe\n              <div class="info-ball">i</div>\n            </div>\n          </ion-segment-button>\n        </ion-segment>\n      </ion-list>\n      <div class="login-box" *ngSwitchCase="\'login\'">\n        <div class="internal-content" *ngIf="showHelpText">\n          <h1>Sind Sie schon registriert?</h1>\n          <br />\n          <p>Bevor Sie die Anwendung in</p>\n          <p>vollem Umfang nützen können,</p>\n          <p>ist eine Registrierung notwendig.</p>\n          <div class="button-wrapper">\n            <button\n              ion-button\n              default\n              style="background-color: #5b5b5b; color: white"\n              (click)="registerLogin =\'register\'"\n            >\n              Jetzt registrieren\n            </button>\n            <button\n              ion-button\n              default\n              style="\n                background-color: transparent;\n                color: #010101;\n                border: 1px solid #5b5b5b;\n              "\n              (click)="showHelpText=false"\n            >\n              Später registrieren\n            </button>\n          </div>\n\n          <!-- <button ion-button outline color="secondary" [hidden]="login" (click)="login = true">Login</button> -->\n          <!-- <button ion-button outline color="secondary" *ngIf="login" (click)="login = false">Registrieren</button> -->\n        </div>\n      </div>\n    </div>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\ger\wzk\front\3 wzk few options\clinic_app_frontend\src\pages\login\login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_auth_manager_auth_manager__["a" /* AuthManagerProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_touch_manager_touch_manager__["a" /* TouchManagerProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_gui_manager_gui_manager__["a" /* GuiManagerProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_storage_manager_storage_manager__["a" /* StorageManagerProvider */],
-            __WEBPACK_IMPORTED_MODULE_9__providers_link_manager_link_manager__["a" /* LinkManagerProvider */],
-            __WEBPACK_IMPORTED_MODULE_11__providers_electron_electron__["a" /* ElectronProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_fire_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_manager_auth_manager__["a" /* AuthManagerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_manager_auth_manager__["a" /* AuthManagerProvider */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_touch_manager_touch_manager__["a" /* TouchManagerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_touch_manager_touch_manager__["a" /* TouchManagerProvider */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__providers_gui_manager_gui_manager__["a" /* GuiManagerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_gui_manager_gui_manager__["a" /* GuiManagerProvider */]) === "function" ? _g : Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" ? _h : Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__providers_storage_manager_storage_manager__["a" /* StorageManagerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_storage_manager_storage_manager__["a" /* StorageManagerProvider */]) === "function" ? _j : Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9__providers_link_manager_link_manager__["a" /* LinkManagerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_link_manager_link_manager__["a" /* LinkManagerProvider */]) === "function" ? _k : Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_11__providers_electron_electron__["a" /* ElectronProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_electron_electron__["a" /* ElectronProvider */]) === "function" ? _l : Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" ? _m : Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_10__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _o : Object])
     ], LoginPage);
     return LoginPage;
 }());
 
-100;
 //# sourceMappingURL=login.js.map
 
 /***/ })
